@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Recipe-Management-App_Frontend';
+  title = 'Recipe-Management-App';
 }
