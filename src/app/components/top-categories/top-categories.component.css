@@ -1,0 +1,83 @@
+h1,h2 {
+    color: #000000;
+    line-height: 1.3;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
+@media only screen and (min-width: 995px){
+    .container{
+        max-width: 960px;
+    
+    }
+}
+
+.single-catagory {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+    transition-duration: 500ms;
+    overflow: hidden;
+}
+
+.single-catagory img {
+    width: 100%;
+}
+
+.single-catagory::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    background: -webkit-linear-gradient(to right, #000, rgba(0, 0, 0, 0.1));
+    background: linear-gradient(to right, #000, rgba(0, 0, 0, 0.1));
+}
+
+.single-catagory .content {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    width: auto;
+    height: auto;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.single-catagory .content h3 {
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 767px) {
+    .single-catagory .content h3 {
+        font-size: 18px;
+    }
+}
+
+.single-catagory .content h6 {
+    color: #ffffff;
+    margin-bottom: 30px;
+    display: block;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 767px) {
+    .single-catagory .content h6 {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .button {
+        height: 40px;
+        line-height: 39px;
+    }
+}
+

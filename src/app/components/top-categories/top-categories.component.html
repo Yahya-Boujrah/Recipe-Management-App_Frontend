@@ -1,0 +1,17 @@
+<section class="catagory-area container">
+    <h2>Recipe Categories</h2>
+    <div class="row">
+        @for (cat of categories; track cat.id) {
+        <div class="col-12 col-lg-6">
+            <div class="single-catagory">
+                <img src="{{cat.src}}" alt="">
+                <div class="content">
+                    <h3>{{cat.title}}</h3>
+                    <h6>{{cat.desc}}</h6>
+                    <a href="#" class="button">See Category</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>
