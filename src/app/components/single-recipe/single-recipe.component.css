@@ -1,0 +1,24 @@
+img {
+    height: auto;
+    max-width: 100%;
+    border-bottom: 3px solid #40ba37;
+}
+
+.receipe-content {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+ h5 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    transition-duration: 500ms;
+    color: #474747;
+}
+
+h5:hover,
+ h5:focus {
+    color: #40ba37;
+}

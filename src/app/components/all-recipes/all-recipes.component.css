@@ -1,0 +1,113 @@
+.search-input {
+    height: 40px;
+    width: 100%;
+    background-color: #f3f5f8;
+    border: 2px solid #ffffff;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 3rem;
+    border: none;
+    border-left: 3px solid #f3f5f8;
+    border-radius: 0;
+    padding: 15px 30px;
+    transition-duration: 500ms;
+
+}
+.search-title{
+    text-align: center;
+    color: #9b9b9b;
+    margin: 20px;
+}
+
+.search-input:focus {
+    border-left: 3px solid #40ba37;
+    box-shadow: none;
+}
+
+.receipe-post-search form input {
+    width: 100%;
+    height: 60px;
+    background-color: #f3f5f8;
+    font-size: 14px;
+    padding: 0 20px;
+    border: none;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .receipe-post-search .col-12 {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .receipe-post-search .col-12 {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* //widge */
+
+.single-widget {
+    position: relative;
+    z-index: 1;
+}
+
+.single-widget h6 {
+    margin-bottom: 50px;
+    display: block;
+}
+
+.single-widget .list {
+    padding-left: 30px;
+}
+
+.single-widget .list li a {
+    display: block;
+    padding: 5px 0;
+    color: #797979;
+}
+
+.single-widget .list li a:hover,
+.single-widget .list li a:focus {
+    color: #40ba37;
+}
+
+.single {
+    flex: 0 0 30% !important;
+}
+
+.all-recipes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+
+.categories h4 {
+    color: #474747;
+    margin-bottom: 30px;
+}
+.nav-link {
+    background-color: #f3f5f8;
+    color: #9b9b9b;
+    border: none;
+    border-left: 3px solid #40ba37;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 2px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.nav-link:hover{
+    background-color: #40ba37;
+    color: #ffffff;
+    border-left: 3px solid #1c8314;
+}

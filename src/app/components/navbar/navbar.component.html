@@ -1,14 +1,14 @@
 <header class="header-area">
    <div class="main-menu container">
         <nav class="navbar">
-            <a class="logo" href="#"><img src="/assets/img/core-img/logo.png" alt=""></a>
+            <a class="logo" (click)="home()" ><img src="/assets/img/core-img/logo.png" alt=""></a>
             <div class="nav">
                 <ul class="nav-items">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">All Recipes</a></li>
-                    <li><a href="#">Add Recipe</a></li>
-                    <li><a href="#">Ingredients</a></li>
-                    <li><a href="">About Us</a></li>
+                    <li class="active"><a (click)="home()" >Home</a></li>
+                    <li><a (click)="allRecipes()">All Recipes</a></li>
+                    <li><a >Add Recipe</a></li>
+                    <li><a >Ingredients</a></li>
+                    <li><a (click)="aboutUs()">About Us</a></li>
                 </ul>
             </div>
         </nav>

@@ -1,0 +1,29 @@
+.header-area {
+    position: relative;
+    z-index: 10;
+    width: 92%;
+    height: 160px;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .header-area {
+        height: 120px;
+    }
+}
+
+.title  {
+    font-size: 25px;
+    margin-bottom: 0;
+    color: #ffffff;
+    
+}
+
+@media only screen and (max-width: 767px) {
+     .title h2 {
+        font-size: 24px;
+    }
+}

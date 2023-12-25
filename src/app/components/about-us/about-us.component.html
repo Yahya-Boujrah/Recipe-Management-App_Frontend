@@ -1,0 +1,42 @@
+<app-page-header title="About Us"></app-page-header>
+
+<section class="about-area container">
+    <div class="row">
+        <div class="col-12">
+            <div class="title">
+                <h3>Who we are and what we do?</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h6 class="sub-heading pb-5">Donec quis metus ac arcu luctus accumsan. Nunc in justo tincidunt, sodales nunc
+                id, finibus nibh. Class aptent</h6>
+
+            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui.
+                Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. eget lobortis purus. Orci varius natoque penatibus et
+                magnis dis parturient.</p>
+        </div>
+    </div>
+
+    <div class="row align-items-center mt-70">
+        @for (icon of icons; track icon.id) {
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="icon">
+                <img src="{{icon.src}}" alt="">
+                <h3><span class="counter">{{icon.counter}}</span></h3>
+                <h6>{{icon.category}}</h6>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <img class="mb-5" src="assets/img/bg-img/about.png" alt="">
+            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui.
+                Suspendisse potenti. Vestibulum ac pellentesque tortor.</p>
+        </div>
+    </div>
+</section>

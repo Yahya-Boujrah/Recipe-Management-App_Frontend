@@ -11,17 +11,10 @@
         <div class="row">
             @for (recipe of recipes; track recipe.id) {
             <div class="col-12 col-sm-6 col-lg-4">
-                <div class="single-best-receipe-area mb-30">
-                    <img src="{{recipe.img}}" alt="">
-                    <div class="receipe-content">
-                        <a href="#">
-                            <h5>{{recipe.title}}</h5>
-                        </a>
-                    </div>
-                </div>
+                <app-single-recipe [recipe]="recipe"></app-single-recipe>
             </div>
-        }
-          
+            }
+
         </div>
     </div>
 </section>

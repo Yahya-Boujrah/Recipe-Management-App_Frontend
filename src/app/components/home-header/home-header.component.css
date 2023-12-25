@@ -68,14 +68,6 @@
     color: #ffffff;
 }
 
-
-.bg-img {
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-
 .search-input {
     height: 40px;
     width: 100%;
