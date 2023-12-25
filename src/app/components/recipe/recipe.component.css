@@ -1,0 +1,78 @@
+body {
+    margin: 10px auto;
+    position: relative;
+}
+
+.row {
+    margin: 25px;
+    justify-content: space-around ;
+    justify-self: center;
+    /* background-color: brown; */
+    height: 350px;
+    max-width: 90%;
+}
+
+#row1 {
+    align-items: center;
+}
+
+#row2 {
+    padding: 30px;
+}
+
+.title {
+    font-weight: 900;
+    padding: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.parag-title {
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    padding: 10px;
+}
+
+.text-sm-start, .ingrediants-list, .step {
+    font-size: large;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: .6px;
+    /* padding: ;10px; */
+}
+
+#text {
+    margin: 20px;
+    /* padding: 30px; */
+    /* background-color: antiquewhite; */
+    justify-content: center;
+}
+
+img {
+    height: 320px;
+    width: auto;
+}
+
+#image {
+    margin: 20px auto;
+    padding: 5px;
+    /* background-color: antiquewhite; */
+    justify-content: center;
+    float: right;
+    text-align: center;
+    display: flex;
+}
+
+.step {
+ font-weight: 600;
+}
+
+/* #id1 {
+    margin: 0 5px;
+    background-color: burlywood;
+}
+
+#id2 {
+    margin: 0 5px;
+    background-color: burlywood;
+} */

@@ -1,0 +1,13 @@
+form {
+    width: 800px;
+    height: auto;
+    justify-content: center;
+    text-align: center;
+    margin: 20px auto;
+    background-color: rgb(11, 146, 122);
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid;
+}

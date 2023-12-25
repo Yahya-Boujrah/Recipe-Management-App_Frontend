@@ -1,0 +1,45 @@
+<body>
+    <div class="row" id="row1">
+        <div class="col-md-8" id="text">
+            <h2 class="title">{{recipe.title}}</h2>
+            <label class="parag-title" >Description</label>
+            <p class="text-sm-start">{{recipe.desc}}</p>
+            <p class="text-sm-start">Creation date: {{recipe.date_creation}}</p>
+            <p class="text-sm-start">Creation date: {{recipe.owner_name}}</p>
+        </div>
+        <div class="col" id="image">
+            <img src="../../../assets/img/cake.jpg" alt="" class="rounded float-right">
+        </div>
+    </div>
+
+    <div class="row" id="row2">
+        <div class="col-md-5" id="id1">
+            <label class="parag-title"> Ingredients</label>
+            <div class="ingrediants-list">
+            <p class="text-sm-start">Creation date: {{recipe.date_creation}}</p>
+                @for (ingredient of recipe.ingredients; track $index) {
+                    <div class="form-check">
+                        <input mdbCheckbox class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                        <label class="form-check-label" for="flexCheckDefault">
+                           {{ingredient}}
+                        </label>
+                    </div>
+                } @empty {
+                    <p class="text-sm-start">Empty list of ingredients</p>
+                }
+                
+            </div>
+            
+        </div>
+        <div class="col-md-7" id="id2">
+            <label class="parag-title"> Method</label><br>
+            @for (step of recipe.method; track $index) {
+                <label class="step"> Step {{$index + 1}}</label>
+                <p class="text-sm-start">{{step}}</p>
+            } @empty {
+                <p class="text-sm-start">Empty list of methods</p>
+            }
+            
+        </div>
+    </div>
+</body>
