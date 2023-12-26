@@ -1,15 +1,37 @@
-<form class="text-center border border-light p-5">
-    <p class="h4 mb-4">Add new recipe</p>
-    <input type="text"  class="form-control mb-4" placeholder="Title">
-    <select name="Category" class="form-control mb-4">
-        <option value="op1">OP1</option>
-        <option value="op2">OP2</option>
-        <option value="op3">OP3</option>
-        <option value="op4">OP4</option>
-    </select>
-    <input type="text" class="form-control mb-4" placeholder="Descreption">
-    <input type="text"  class="form-control mb-4" placeholder="Ingredients">
-    <input type="text"  class="form-control mb-4" placeholder="Method">
-    <button mdbBtn color="info" block="true" class="form-control mb-4" type="submit">Sign up</button>
-    
-  </form>
+<app-page-header title="Add Reccipe"></app-page-header>
+  <section class="recipe-form container">
+    <div class="col-12">
+            <form action="#" method="post">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <input type="text" class="form-control" name="title" placeholder="Title">
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <input type="text" class="form-control" name="category" placeholder="Category">
+                    </div>
+                    <div class="col-12">
+                        <input type="file" class="form-control" name="picture" placeholder="Picture">
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description"></textarea>
+                    </div>
+
+                    <div class="col-12  col-lg-6">
+                        <p>Ingredients</p>
+                        <input type="Ingredient name" class="form-control" name="name" placeholder="Add Ingredient">
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <p>Instructions</p>
+                        <textarea class="form-control" name="Instruction" cols="30" rows="10" placeholder="Description"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button class="button mt-5" type="submit">Add Recipe</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+</section>

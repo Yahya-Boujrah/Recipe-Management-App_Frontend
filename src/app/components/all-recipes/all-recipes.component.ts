@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SingleRecipeComponent } from '../single-recipe/single-recipe.component';
 import { PageHeaderComponent } from '../page-header/page-header.component';
+import { Recipe } from '../../interfaces/recipe';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-all-recipes',
@@ -11,9 +13,19 @@ import { PageHeaderComponent } from '../page-header/page-header.component';
   templateUrl: './all-recipes.component.html',
   styleUrl: './all-recipes.component.css'
 })
-export class AllRecipesComponent {
+export class AllRecipesComponent implements OnInit{
 
-  recipes : { id: string, img: string , title:string}[] = [
+  private recipeService = inject(RecipeService);
+
+  recipes !: Recipe[];
+
+  ngOnInit(): void {
+    this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
+      this.recipes = response.data?.allRecipes;
+    });
+  }
+
+  recipeDumps : { id: string, img: string , title:string}[] = [
     {id: "1", img: "assets/img/bg-img/r1.jpg", title: "Sushi Easy Receipe"},
     {id: "2", img: "assets/img/bg-img/r2.jpg", title: "Homemade Burger"},
     {id: "3", img: "assets/img/bg-img/r3.jpg", title: "Vegan Smoothie"},
@@ -23,7 +35,11 @@ export class AllRecipesComponent {
     {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
     {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
     {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
-    {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"}
+    {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
+    {id: "3", img: "assets/img/bg-img/r3.jpg", title: "Vegan Smoothie"},
+    {id: "3", img: "assets/img/bg-img/r3.jpg", title: "Vegan Smoothie"},
+
   ]
 }
+
 

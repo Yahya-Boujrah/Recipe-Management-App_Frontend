@@ -11,9 +11,19 @@
     border-radius: 0;
     padding: 15px 30px;
     transition-duration: 500ms;
+    margin-left: 0;
+    margin-right: 0;
 
 }
-.search-title{
+
+@media only screen and (min-width: 995px) {
+    .container {
+        max-width: 1200px !important;
+
+    }
+}
+
+.search-title {
     text-align: center;
     color: #9b9b9b;
     margin: 20px;
@@ -74,12 +84,12 @@
 }
 
 .single {
-    flex: 0 0 30% !important;
+    flex: 0 0 22% !important;
 }
 
 .all-recipes {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
@@ -91,6 +101,7 @@
     color: #474747;
     margin-bottom: 30px;
 }
+
 .nav-link {
     background-color: #f3f5f8;
     color: #9b9b9b;
@@ -106,8 +117,27 @@
     margin-bottom: 10px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     background-color: #40ba37;
     color: #ffffff;
     border-left: 3px solid #1c8314;
+}
+
+.nice-select {
+    height: 40px;
+    background-color: #f3f5f8;
+    font-size: 12px;
+    font-style: italic;
+    border: none;
+    border-left: 3px solid #f3f5f8;
+    border-radius: 0;
+    padding: 0 30px;
+    outline: none;
+
+}
+.picklists{
+    justify-content: space-between; 
+    margin-bottom:3rem;
+    margin-left: 0;
+    margin-right: 0;
 }

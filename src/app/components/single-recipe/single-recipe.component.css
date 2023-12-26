@@ -2,6 +2,7 @@ img {
     height: auto;
     max-width: 100%;
     border-bottom: 3px solid #40ba37;
+    border-radius: 15px;
 }
 
 .receipe-content {
