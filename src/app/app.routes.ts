@@ -10,6 +10,13 @@ import { authGuard } from './auth.guard';
 import { MyRecipesComponent } from './components/my-recipes/my-recipes.component';
 
 export const routes: Routes = [
+    
+    {
+        path: 'login', component: LoginInComponent
+    },
+    {
+        path: 'signup', component: SignUpComponent
+    },
 
     {
         path: '', component: NavigationComponent, children: [
@@ -23,19 +30,8 @@ export const routes: Routes = [
                 path: 'all-recipes', component: AllRecipesComponent
             },
             {
-                path: 'add-recipe', canActivate: [authGuard], component: AddRecipeComponent
-
-            },
-            {
-                path: 'my-recipes', canActivate: [authGuard], component: MyRecipesComponent
-            },
-            {
-                path: 'login', component: LoginInComponent
-            },
-            {
-                path: 'signup', component: SignUpComponent
+                path: 'add-recipe', canActivate: [authGuard] ,component: AddRecipeComponent
             }
-
         ]
     }
 

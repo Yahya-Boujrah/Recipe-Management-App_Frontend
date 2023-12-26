@@ -1,12 +1,33 @@
-<form class="text-center border border-light p-5" #signupForm="ngForm">
-  <p class="h4 mb-4">Sign up</p>
-  
-  <input type="text" class="form-control mb-4" placeholder="First name" name="firstName" ngModel required>
-  <input type="text" class="form-control mb-4" placeholder="Last name" name="lastName" ngModel required>
-  <input type="email" class="form-control m mb-4" placeholder="E-mail" name="email" ngModel required>
-  <input type="password" class="form-control mb-4" placeholder="Password" name="password" ngModel required>
-
-  <button mdbBtn color="info" block="true" class="form-control mb-4" type="submit"
-            (click)="register(signupForm)">Sign up</button>
-
-</form>
+<!-- <div class="body"> -->
+  <div class="row">
+    <div class="col">
+        <div class="leftside">
+            <div class="form">
+                <div class="title">
+                    <h3>Sign Up</h3>
+                </div>
+                <form id="form" #signupForm="ngForm">
+                  <label class="input-title">Fisrt Name: </label>
+                  <input type="text" name="firstName" class="input" ngModel required><br>
+                  <label class="input-title">Last Name: </label>
+                  <input type="text" name="lastName" class="input" ngModel required><br>
+                  <label class="input-title">Email: </label>
+                  <input type="email" name="email" class="input" ngModel required><br>
+                  <label class="input-title">Password: </label>
+                  <input type="password" name="password" class="input" ngModel required><br>
+                  <input type="button" value="SignUp" class="button" (click)="register(signupForm)">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="rightside">
+            <div class="image">
+                <h2 class="image-text">Welcome Back</h2>
+                <p class="image-text">Already signed up, enter your details and start cooking your first meal today</p>
+                <input type="button" value="LogIn" class="button" (click)="login()">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->

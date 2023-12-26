@@ -15,6 +15,7 @@ import { User } from '../../interfaces/user';
   styleUrl: './navbar.component.css',
   providers: []
 })
+
 export class NavbarComponent {
 
   private router = inject(Router);
@@ -53,6 +54,7 @@ export class NavbarComponent {
       if (response) {
         this.authToken = response.token;
         sessionStorage.setItem('token', this.authToken);
+        this.router.navigate([''], {relativeTo: this.route});
     
       }else{
         alert("Authentication failed");
@@ -70,6 +72,7 @@ export class NavbarComponent {
       if (response) {
         this.authToken = response.token;
         sessionStorage.setItem('token', this.authToken);
+        this.router.navigate([''], {relativeTo: this.route});
     
       }else{
         alert("Authentication failed");

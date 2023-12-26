@@ -1,9 +1,27 @@
-<form class="text-center border border-light p-5" #loginForm="ngForm">
-    <p class="h4 mb-4">Log in</p>
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" ngModel
-        name="email" required>
-    <input type="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" ngMoel
-        name="password" required>
-    <button color="info" class="form-control mb-4" type="submit" (click)="login(loginForm)">Log in</button>
-
-</form>
+    <div class="row">
+        <div class="col">
+            <div class="leftside">
+                <div class="form">
+                    <div class="title">
+                        <h3>LogIn</h3>
+                    </div>
+                    <form id="form" #loginForm="ngForm">
+                        <label class="input-title">Email: </label>
+                        <input type="email" name="email" class="input" ngModel required><br>
+                        <label class="input-title">Password: </label>
+                        <input type="password" name="password" class="input" ngModel required><br>
+                        <input type="button" value="logIn" class="button" (click)="login(loginForm)">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="rightside">
+                <div class="image">
+                    <h2 class="image-text">Hello There, Join Us</h2>
+                    <p class="image-text" >Enter your personal details and join the cooking community</p><br>
+                    <input type="button" value="SignUp" class="button" (click)="signup()" >
+                </div>
+            </div>
+        </div>
+    </div>
