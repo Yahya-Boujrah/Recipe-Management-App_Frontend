@@ -31,7 +31,10 @@ export const routes: Routes = [
             },
             {
                 path: 'add-recipe', canActivate: [authGuard] ,component: AddRecipeComponent
-            }
+            },
+            {
+                path: 'my-recipes', canActivate: [authGuard] ,component: MyRecipesComponent
+            },
         ]
     }
 

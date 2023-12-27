@@ -3,7 +3,7 @@ import { Ingredient } from "./ingredient";
 import { Instruction } from "./instruction";
 import { User } from "./user";
 
-export interface Recipe {
+export interface RecipeInput {
     id ?: string;
     title:string;
     description:string;

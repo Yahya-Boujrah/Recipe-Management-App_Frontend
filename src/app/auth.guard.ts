@@ -7,8 +7,8 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   let token = sessionStorage.getItem('token');
 
-  if(!token){
-    return router.parseUrl('login');
-  }
+  // if(!token){
+  //   return router.parseUrl('login');
+  // }
   return true;
 };

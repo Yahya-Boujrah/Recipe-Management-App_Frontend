@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { Recipe } from '../interfaces/recipe';
 import { Apollo, gql } from 'apollo-angular';
+import { RecipeInput } from '../interfaces/RecipeInput';
 
 
 @Injectable({
@@ -50,38 +51,48 @@ export class RecipeService {
       `,
       })
   }
+  submitRecipe = gql`
+  mutation addRecipe(
+    $recipe: RecipeInput!
+  ) {
+    book(title: $title, authors: $authors, pages: $pages, chapters: $chapters) {
+      id
+    }
+  }
+`;
 
-  addRecipe(recipe: Recipe) {
+  addRecipe(recipe: RecipeInput) {
     return this.apollo
       .mutate({
         mutation: gql`
-            addRecipe(recipeInput: $recipeInput) {
+        mutation addRecipe($recipeInput: RecipeInput!) {
+            id
+            title
+            description
+            picture
+            rating
+            user {
               id
-              title
-              description
-              picture
-              user {
-                id
-                firstName
-                lastName
-                email
-                password
-                createdAt
-              }
-              category {
-                id
-                name
-              }
-              ingredients {
-                id
-                name
-                description
-              }
-              instructions {
-                id
-                number
-                description
+              firstName
+              lastName
+              email
+              createdAt
             }
+            category {
+              id
+              name
+            }
+            ingredients {
+              id
+              name
+              description
+            }
+            instructions {
+              id
+              number
+              description
+            }
+        }
         `,
         variables: {
           recipeInput: recipe,

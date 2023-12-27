@@ -1,0 +1,45 @@
+@media only screen and (min-width: 995px) {
+    .container {
+        max-width: 1200px !important;
+
+    }
+}
+
+.all-recipes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.single {
+    flex: 0 0 22% !important;
+}
+
+.search-input {
+    height: 40px;
+    width: 100%;
+    background-color: #f3f5f8;
+    border: 2px solid #ffffff;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 3rem;
+    border: none;
+    border-left: 3px solid #f3f5f8;
+    border-radius: 0;
+    padding: 15px 30px;
+    transition-duration: 500ms;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+.search-input:focus {
+    border-left: 3px solid #40ba37;
+    box-shadow: none;
+}
+
+.add-recipe{
+    margin-bottom: 2rem;
+    text-align: end;
+}

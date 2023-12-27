@@ -39,11 +39,11 @@ img {
     transition-duration: 500ms;
     text-transform: capitalize;
     background-color: #40ba37;
+    text-align: center;
 }
 
 .button.active,
 .button:hover
-
 /* .button:focus*/
     {
     font-size: 16px;

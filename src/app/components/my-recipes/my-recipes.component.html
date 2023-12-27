@@ -1,1 +1,18 @@
-<p>my-recipes works!</p>
+<app-page-header title="My Recipes"></app-page-header>
+
+<section class="container">
+    <div class="row mx-0">
+        <input type="search" class="form-control search-input" id="search" placeholder="Search Recipes">
+    </div>
+    <div class="add-recipe">
+        <a class="button " (click)="addRecipe()">Add Recipe</a>
+    </div>
+    <div class="row recipes-area">
+        <div class="col-12 col-sm-12 col-lg-12 all-recipes ">
+            @for (recipe of recipeDumps; track recipe.id) {
+            <app-single-recipe class="single" [recipe]="recipe"></app-single-recipe>
+            }
+        </div>
+    </div>
+
+</section>

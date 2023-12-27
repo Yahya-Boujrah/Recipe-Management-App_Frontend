@@ -1,4 +1,4 @@
-.recipe-form{
+.recipe-form {
     margin-top: 6rem;
 }
 
@@ -21,7 +21,58 @@
     box-shadow: none;
 }
 
- textarea.form-control {
+textarea.form-control {
     height: 200px;
     transition-duration: 500ms;
+}
+
+.button-black {
+    background-color: #474747;
+    border-color: #1c8314;
+    min-width: 175px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    border-left: 3px solid #40ba37;
+    box-shadow: none;
+}
+
+textarea.form-control {
+    height: 200px;
+    transition-duration: 500ms;
+}
+
+.description {
+    height: 100px !important;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.x-icon{
+    color: red;
+}
+
+.tile{
+    background: #f3f5f8;
+    padding: 8px;
+    padding-left: 23px;
+    border-radius: 25px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
 }

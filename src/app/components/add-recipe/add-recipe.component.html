@@ -1,37 +1,66 @@
-<app-page-header title="Add Reccipe"></app-page-header>
-  <section class="recipe-form container">
+<app-page-header title="Add Recipe"></app-page-header>
+<section class="recipe-form container">
     <div class="col-12">
-            <form action="#" method="post">
-                <div class="row">
-                    <div class="col-12 col-lg-6">
-                        <input type="text" class="form-control" name="title" placeholder="Title">
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <input type="text" class="form-control" name="category" placeholder="Category">
-                    </div>
-                    <div class="col-12">
-                        <input type="file" class="form-control" name="picture" placeholder="Picture">
-                    </div>
-                    <div class="col-12">
-                        <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description"></textarea>
-                    </div>
-
-                    <div class="col-12  col-lg-6">
-                        <p>Ingredients</p>
-                        <input type="Ingredient name" class="form-control" name="name" placeholder="Add Ingredient">
-                    </div>
-                    <div class="col-12">
-                        <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description"></textarea>
-                    </div>
-
-                    <div class="col-12">
-                        <p>Instructions</p>
-                        <textarea class="form-control" name="Instruction" cols="30" rows="10" placeholder="Description"></textarea>
-                    </div>
-                    <div class="col-12">
-                        <button class="button mt-5" type="submit">Add Recipe</button>
-                    </div>
+        <form action="#" method="post" #recipeForm="ngForm">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <input type="text" class="form-control" name="title" placeholder="Title" ngModel required>
                 </div>
-            </form>
+                <div class="col-12 col-lg-6">
+                    <input type="text" class="form-control" name="category" placeholder="Category" ngModel required>
+                </div>
+                <div class="col-12">
+                    <input type="file" class="form-control" name="picture" placeholder="Picture" ngModel>
+                </div>
+                <div class="col-12">
+                    <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Description"
+                        ngModel required></textarea>
+                </div>
+                <form #ingredientForm="ngForm">
+                    <div class="col-12 col-lg-6 ">
+                        <div class="header">
+                            <p style="margin: 0;">Ingredients</p>
+                        </div>
+                        <input type="Ingredient name" class="form-control" name="name" placeholder="Name" ngModel
+                            required>
+
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control description" name="description" cols="30" rows="10"
+                            placeholder="Description" ngModel required></textarea>
+                    </div>
+                    <button class="button button-black" (click)="addIngredient(ingredientForm)"
+                        [disabled]="ingredientForm.invalid"><fa-icon [icon]="faCirclePlus"></fa-icon>Add
+                        Ingredient</button>
+                </form>
+                @for (ingredient of ingredients; track $index) {
+                <div class="col-12 col-lg-2 tile">
+                    <span>{{ingredient?.name}} </span>
+                    <a (click)="removeIngredient($index)"><fa-icon class="x-icon" [icon]="faX"></fa-icon></a>
+                </div>
+                }
+
+                <form #instructionForm="ngForm" class="col-12">
+                    <div class="header">
+                        <p style="margin: 0;">Instructions</p>
+                    </div>
+                    <textarea class="form-control description" name="description" cols="30" rows="10"
+                        placeholder="Description" ngModel required></textarea>
+                    <button class="button button-black " (click)="addInstruction(instructionForm)"
+                        [disabled]="instructionForm.invalid"><fa-icon [icon]="faCirclePlus"></fa-icon>
+                        Add Instruction</button>
+                </form>
+                @for (step of steps; track $index) {
+                <div class="col-2 tile">
+                    <span>Step {{step.number}}</span>
+                    <a (click)="removeInstruction($index)"><fa-icon class="x-icon" [icon]="faX"></fa-icon></a>
+                </div>
+                }
+
+                <div class="col-12 text-center">
+                    <button class="button mt-4" type="submit" (click)="addRecipe(recipeForm)" [disabled]="recipeForm.invalid">Add Recipe</button>
+                </div>
+            </div>
+        </form>
     </div>
 </section>

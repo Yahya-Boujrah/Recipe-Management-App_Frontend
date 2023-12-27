@@ -36,9 +36,10 @@
     border-radius: 20px;
     padding: 15px 30px;
     transition-duration: 500ms;
+    outline: none;
   }
   
-  .search-input:focus {
+  .input:focus {
     border-left: 3px solid #d6fcd3 !important;
     box-shadow: none;
   }
