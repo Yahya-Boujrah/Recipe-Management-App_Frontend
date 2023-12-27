@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row mx-0">
-            <input type="search" class="form-control search-input" id="search" placeholder="Search Recipes">
+            <input  #search type="search" class="form-control search-input" id="search" placeholder="Search Recipes" (keyup.enter)="doSearch(search.value)">
         </div>
         <div class="row picklists">
             <select class="nice-select col-3" name="select1" id="select1">
@@ -12,10 +12,10 @@
                 <option value="1">Sort by: Latest</option>
                 <option value="2">Sort by: Top Rated</option>
             </select>
-            <select class="nice-select col-3" name="select2" id="select2">
-                <option value="1">All Categories</option>
-                <option value="1">Category 1</option>
-                <option value="1">Category 2</option>
+            <select #category  class="nice-select col-3"  NgModel (change)="getByCategory(category.value)">
+                <option value="">All Categories</option>
+                <option value="category">Category 1</option>
+                <option value="category">Category 2</option>
             </select>
         </div>
 
