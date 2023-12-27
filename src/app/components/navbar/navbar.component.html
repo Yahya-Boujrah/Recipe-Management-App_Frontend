@@ -4,20 +4,22 @@
       <a class="logo" (click)="home()"><img src="/assets/img/core-img/logo.png" alt="" /></a>
       <div class="nav">
         <ul class="nav-items">
-          <li class="active"><a (click)="home()">Home</a></li>
-          <li><a (click)="allRecipes()">All Recipes</a></li>
-          <li><a (click)="addRecipe()">Add Recipe</a></li>
-          <li><a (click)="myRecipes()">My Recipes</a></li>
-          <li><a (click)="aboutUs()">About Us</a></li>
+            <li [class.active]="activeLink === 'home'"><a (click)="home()">Home</a></li>
+            <li [class.active]="activeLink === 'allRecipes'"><a (click)="allRecipes()">All Recipes</a></li>
+            <li [class.active]="activeLink === 'addRecipe'"><a (click)="addRecipe()">Add Recipe</a></li>
+            <li [class.active]="activeLink === 'myRecipes'"><a (click)="myRecipes()">My Recipes</a></li>
+            <li [class.active]="activeLink === 'aboutUs'"><a (click)="aboutUs()">About Us</a></li>
+          
+          <!--
           @if (storedToken) {
             <li>
               <a (click)="logout()">LogOut</a>
             </li>
-          } @else {
+          } @else { -->
             <li>
               <a data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a>
             </li>
-          }
+         <!-- }  -->
         </ul>
       </div>
     </nav>
@@ -39,7 +41,7 @@
             <input type="email" class="form-control mb-2 input" placeholder="E-mail" ngModel name="email" required />
             <input type="password" class="form-control mb-3 input" placeholder="Password" ngModel name="password"
               required />
-          <button color="info" class="form-control mb-3 button" type="submit" (click)="login(loginForm)">
+          <button color="info" class="form-control mb-3 button" type="submit" data-bs-dismiss="modal" (click)="login(loginForm)">
             Login
           </button>
           <a type="button" data-bs-toggle="modal" data-bs-target="#SignUpModal" class="link">You don't have an account yet?</a>
@@ -68,9 +70,10 @@
           <input type="password" class="form-control mb-3 input" placeholder="Password" name="password" ngModel
             required />
 
-          <button mdbBtn color="info" block="true" class="form-control mb-2 button" type="submit"
+          <button mdbBtn color="info" block="true" class="form-control mb-2 button" type="submit" data-bs-dismiss="modal"
             (click)="register(signupForm)">
-            Sign up
+            Sign upcurl -XDELETE localhost:9200/shop
+
           </button>
           <a type="button" data-bs-toggle="modal" data-bs-target="#LoginModal" class="link" >You already have an account?</a>
         </form>

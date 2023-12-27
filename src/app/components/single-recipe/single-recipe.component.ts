@@ -19,6 +19,6 @@ export class SingleRecipeComponent {
   recipe !: Recipe;
 
   singleRecipePost() : void {
-    this.router.navigate(['singleRecipePost'], {state: this.recipe});
+    this.router.navigate(['singleRecipePost'], {state: { recipe: this.recipe }});
   }
 }

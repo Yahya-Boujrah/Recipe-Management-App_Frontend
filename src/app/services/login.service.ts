@@ -19,8 +19,6 @@ export class LoginService {
 
   private http : HttpClient =  inject(HttpClient);
 
-  // constructor(private http : HttpClient) { }
-
   authenticate(email : string, password : string): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.URL}/authenticate`, { email : email, password : password},httpOptions)
     .pipe(tap(

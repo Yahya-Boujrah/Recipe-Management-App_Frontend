@@ -1,7 +1,4 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { RecipeService } from '../../services/recipe.service';
-import { response } from 'express';
-import { User } from '../../interfaces/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageHeaderComponent } from '../page-header/page-header.component';
 import { Recipe } from '../../interfaces/recipe';

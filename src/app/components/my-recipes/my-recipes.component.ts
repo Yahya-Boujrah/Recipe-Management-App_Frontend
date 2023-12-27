@@ -19,12 +19,12 @@ export class MyRecipesComponent {
   recipes !: Recipe[];
 
   
-  // recipeDumps : id: string, title: string, desc: string, img: string, createdAt: string, category: string[], ingredients: string[], method: string[], user: User = [
-  //   {id: "1", title: "Sushi Easy Receipe", desc: "description", img: "assets/img/bg-img/r1.jpg", createdAt: "2015-09-12", category: "cat1", ingredients: ["sel", "poivre"]},
-  //   {id: "2", title: "Sushi Easy Receipe", desc: "description", img: "assets/img/bg-img/r1.jpg", createdAt: "2015-09-12", category: "cat1", ingredients: ["sel", "poivre"]},
-  //   {id: "3", title: "Sushi Easy Receipe", desc: "description", img: "assets/img/bg-img/r1.jpg", createdAt: "2015-09-12", category: "cat1", ingredients: ["sel", "poivre"]},
+  recipeDumps : { id: string, title: string, desc: string, img: string, createdAt: string, category: string, ingredients: string[] }[] = [
+    {id: "1", title: "Sushi Easy Receipe", desc: "description", img: "assets/img/bg-img/r1.jpg", createdAt: "2015-09-12", category: "cat1", ingredients: ["sel", "poivre"]},
+    {id: "2", title: "Sushi Easy Receipe", desc: "description", img: "assets/img/bg-img/r1.jpg", createdAt: "2015-09-12", category: "cat1", ingredients: ["sel", "poivre"]},
+    {id: "3", title: "Sushi Easy Receipe", desc: "description", img: "assets/img/bg-img/r1.jpg", createdAt: "2015-09-12", category: "cat1", ingredients: ["sel", "poivre"]},
 
-  // ];
+  ];
 
   addRecipe(){
     this.router.navigate(['add-recipe']);

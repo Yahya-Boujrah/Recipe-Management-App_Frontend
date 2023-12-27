@@ -45,7 +45,7 @@ export class AllRecipesComponent implements OnInit{
   //]
 
   doSearch(value: string){
-    this.searchService.recipesByCategory(value).subscribe();
+    this.searchService.searchInFields(value).subscribe();
   }
 
   getByCategory(category : string){
@@ -57,7 +57,6 @@ export class AllRecipesComponent implements OnInit{
 
     console.log(this.recipes);
     
-
   }
 }
 
