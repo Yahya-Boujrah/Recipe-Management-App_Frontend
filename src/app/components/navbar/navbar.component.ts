@@ -27,8 +27,11 @@ export class NavbarComponent {
   activeLink: string = 'home';
 
 
-  // storedToken = sessionStorage.getItem('token');
-  storedToken : string = '';
+
+  get tokenExist (){
+
+    return sessionStorage.getItem('token') == undefined ?true : false ;
+  } 
 
   home() : void{
     this.activeLink = 'home';
@@ -95,6 +98,8 @@ export class NavbarComponent {
   }
 
   logout() {
+    console.log("token ",this.authToken);
+    
     sessionStorage.removeItem('token');
     this.authToken = '';
     this.router.navigate(['']);
