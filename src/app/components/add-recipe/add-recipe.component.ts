@@ -13,8 +13,7 @@ import {faX} from '@fortawesome/free-solid-svg-icons';
 
 import { RecipeService } from '../../services/recipe.service';
 import { Recipe } from '../../interfaces/recipe';
-import { log } from 'console';
-import { random } from 'node-forge';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-add-recipe',
@@ -38,7 +37,7 @@ export class AddRecipeComponent {
   addIngredient(form : NgForm){
     console.log("value" + JSON.stringify(form.value));
     const ingredient :Ingredient=  {
-      id: random.toString(),
+      id: this.generateUUID(),
       name : form.value.name,
       description : form.value.description
     };
@@ -58,7 +57,7 @@ export class AddRecipeComponent {
 
   addInstruction(form : NgForm) : void{
     const step :Instruction=  {
-      id: random.toString(),
+      id: this.generateUUID(),
       number : this.steps.length + 1,
       description : form.value.description
     };
@@ -84,13 +83,12 @@ export class AddRecipeComponent {
     console.log("value" + JSON.stringify(recipeForm.value));
 
     const recipe : Recipe = {
-      id:  random.toString(),
+      id:  this.generateUUID(),
       title: recipeForm.value.title,
       description : recipeForm.value.description,
       picture : recipeForm.value.picture,
-      createdAt : new Date().toString(),
       category : {
-        id:random.toString(),
+        id: this.generateUUID(),
         name: recipeForm.value.category
       },
       ingredients : this.ingredients,
@@ -99,11 +97,15 @@ export class AddRecipeComponent {
     console.log("recipe " +  JSON.stringify(recipe));
     
     
-    this.recipeService.addRecipe(recipeForm.value)
+    this.recipeService.addRecipe(recipe).subscribe()
     this.ingredients = [];
     this.steps = [];
     recipeForm.reset();
 
+  }
+
+  generateUUID(): string {
+    return uuidv4();
   }
 
 }

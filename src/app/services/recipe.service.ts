@@ -2,7 +2,6 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { Recipe } from '../interfaces/recipe';
 import { Apollo, gql } from 'apollo-angular';
-import { RecipeInput } from '../interfaces/RecipeInput';
 
 
 @Injectable({
@@ -52,62 +51,12 @@ export class RecipeService {
       })
   }
 
-  recipeById(id: string) {
-    return this.apollo
-      .watchQuery({
-        query: gql`
-        query GetRecipeById($id: ID!) {
-          recipeById(id: $id) {
-            id
-            title
-            description
-            picture
-            createdAt
-            category {
-              id
-              name
-            }
-            ingredients {
-              id
-              name
-              description
-            }
-            instructions {
-              id
-              number
-              description
-            }
-            user {
-              id
-              firstName
-              lastName
-              email
-              createdAt
-            }
-          }
-        }
-      `,
-      variables: {
-        id: id,
-      },
-    });
-  }
-
-  submitRecipe = gql`
-  mutation addRecipe(
-    $recipe: RecipeInput!
-  ) {
-    book(title: $title, authors: $authors, pages: $pages, chapters: $chapters) {
-      id
-    }
-  }
-`;
-
-  addRecipe(recipe: RecipeInput) {
+  addRecipe(recipe: Recipe) {
     return this.apollo
       .mutate({
         mutation: gql`
-        mutation addRecipe($recipeInput: RecipeInput!) {
+        mutation addRecipe($recipe: RecipeInput!){
+          addRecipe(recipeInput: $recipe) {
             id
             title
             description
@@ -118,7 +67,7 @@ export class RecipeService {
               firstName
               lastName
               email
-              createdAt
+              
             }
             category {
               id
@@ -134,10 +83,11 @@ export class RecipeService {
               number
               description
             }
+          }
         }
         `,
         variables: {
-          recipeInput: recipe,
+          recipe: recipe,
         },
       })
       .pipe(tap(
