@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../../interfaces/user';
+import { Recipe } from '../../interfaces/recipe';
 
 @Component({
   selector: 'app-single-recipe',
@@ -9,6 +12,13 @@ import { Component, Input } from '@angular/core';
 })
 export class SingleRecipeComponent {
 
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   @Input()
-  recipe !: { id: string, img: string , title:string}
+  recipe !: Recipe;
+
+  singleRecipePost() : void {
+    this.router.navigate(['singleRecipePost'], {state: this.recipe});
+  }
 }

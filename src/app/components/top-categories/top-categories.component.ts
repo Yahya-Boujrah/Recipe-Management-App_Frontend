@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Category } from '../../interfaces/category';
 
 @Component({
   selector: 'app-top-categories',
@@ -9,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class TopCategoriesComponent {
   
+
   categories: { id: string, src: string , title:string ,desc:string}[] = [
     { id: "1", src: "/assets/img/bg-img/bg2.jpg", title : "Burger recipies", desc : "Simple & Delicious"},
     { id: "2", src: "/assets/img/bg-img/bg3.jpg" ,title : "Meat recipies", desc : "Simple & Delicious" },

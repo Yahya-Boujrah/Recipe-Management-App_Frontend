@@ -28,11 +28,7 @@ export const routes: Routes = [
                 path: 'about-us', component: AboutUsComponent
             },
             {
-                path: 'all-recipes', component: AllRecipesComponent, children: [
-                    {
-                        path: 'singleRecipepost', component: SingleRecipePostComponent
-                    }
-                ]
+                path: 'all-recipes', component: AllRecipesComponent
             },
             {
                 path: 'add-recipe', canActivate: [authGuard] ,component: AddRecipeComponent
@@ -40,6 +36,10 @@ export const routes: Routes = [
             {
                 path: 'my-recipes', canActivate: [authGuard] ,component: MyRecipesComponent
             },
+            {
+                path: 'singleRecipePost', component: SingleRecipePostComponent
+            }
+            
         ]
     }
 

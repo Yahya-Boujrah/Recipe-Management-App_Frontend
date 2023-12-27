@@ -1,78 +1,73 @@
-body {
-    margin: 10px auto;
-    position: relative;
+.recipe {
+    margin: 60px;
 }
-
 .row {
-    margin: 25px;
-    justify-content: space-around ;
-    justify-self: center;
-    /* background-color: brown; */
-    height: 350px;
-    max-width: 90%;
+    margin: 40px;
+    height: auto;
 }
-
-#row1 {
-    align-items: center;
+.col {
+    padding: 20px 15px;
+    margin: 20px;
 }
-
-#row2 {
-    padding: 30px;
+.recipe-image {
+    justify-content: center;
+    text-align: center;
+    margin: 30px;
+    width: 100%;
+    height: auto;
+    margin: auto;
 }
-
+.recipe-text {
+    margin: 60px 20px 10px;
+}
 .title {
-    font-weight: 900;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: Arial, "Montserrat", sans-serif;
+    letter-spacing: 3px;
+    justify-content: center;
+    text-align: center;
     padding: 10px;
-    font-family:Arial, Helvetica, sans-serif;
+    color: #1c8314;
 }
-
 .parag-title {
     font-weight: 700;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 3px;
     font-size: x-large;
+    padding: 20px;  
+    color: #1c8314;
+}
+.text-sm-start {
+    font-size: large;
+    font-weight: 400;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    letter-spacing: .6px;
+    color: #4A4A4A !important;
+    text-align: center !important;
+    padding: 20px;
+}
+ #second-text {
+    text-align: start !important;
+    padding: 0 !important;
+ }
+.step {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    color: #40ba37;
     padding: 10px;
 }
-
-.text-sm-start, .ingrediants-list, .step {
-    font-size: large;
-    font-weight: 500;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: .6px;
-    /* padding: ;10px; */
+hr {
+    color: #40ba37;
 }
 
-#text {
-    margin: 20px;
-    /* padding: 30px; */
-    /* background-color: antiquewhite; */
-    justify-content: center;
+.ingredients {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    padding: 10px;
 }
-
-img {
-    height: 320px;
-    width: auto;
+#third-text {
+    text-align: start !important;
+    padding: 10px !important;
 }
-
-#image {
-    margin: 20px auto;
-    padding: 5px;
-    /* background-color: antiquewhite; */
-    justify-content: center;
-    float: right;
-    text-align: center;
-    display: flex;
-}
-
-.step {
- font-weight: 600;
-}
-
-/* #id1 {
-    margin: 0 5px;
-    background-color: burlywood;
-}
-
-#id2 {
-    margin: 0 5px;
-    background-color: burlywood;
-} */

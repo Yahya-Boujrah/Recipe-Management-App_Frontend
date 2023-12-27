@@ -26,7 +26,7 @@ export class NavbarComponent {
   private authToken!: string;
 
   // storedToken = sessionStorage.getItem('token');
-  storedToken : string = 'token';
+  storedToken : string = '';
 
   home() : void{
     this.router.navigate(['']);

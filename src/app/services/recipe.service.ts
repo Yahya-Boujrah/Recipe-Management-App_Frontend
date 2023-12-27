@@ -51,6 +51,48 @@ export class RecipeService {
       `,
       })
   }
+
+  recipeById(id: string) {
+    return this.apollo
+      .watchQuery({
+        query: gql`
+        query GetRecipeById($id: ID!) {
+          recipeById(id: $id) {
+            id
+            title
+            description
+            picture
+            createdAt
+            category {
+              id
+              name
+            }
+            ingredients {
+              id
+              name
+              description
+            }
+            instructions {
+              id
+              number
+              description
+            }
+            user {
+              id
+              firstName
+              lastName
+              email
+              createdAt
+            }
+          }
+        }
+      `,
+      variables: {
+        id: id,
+      },
+    });
+  }
+
   submitRecipe = gql`
   mutation addRecipe(
     $recipe: RecipeInput!
