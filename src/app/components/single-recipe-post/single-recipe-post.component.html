@@ -11,7 +11,7 @@
             <div class="recipe-text">
                 <h2 class="title">{{recipe.title}}</h2>
                 <p class="text-sm-start">{{recipe.description}}</p>
-                <p class="text-sm-start" id="second-text">Category: <strong>{{recipe.category}}</strong></p>
+                <p class="text-sm-start" id="second-text">Category: <strong>{{recipe.category.name}}</strong></p>
                 <p class="text-sm-start" id="second-text">Created At: <strong>{{recipe.createdAt}}</strong></p>
                 <p class="text-sm-start"id="second-text">Created By: <strong>{{recipe.user?.firstName}} | {{recipe.user?.lastName}}</strong></p>
             </div>
@@ -23,8 +23,8 @@
             <div class="steps">
                 <label class="parag-title"> How To Make It</label><br>
                 @for (step of recipe.instructions; track $index) {
-                    <label class="step"> Step {{$index + 1}}</label><hr>
-                    <p class="text-sm-start" id="second-text">{{step}}</p>
+                    <label class="step"> Step {{step.number}}</label><hr>
+                    <p class="text-sm-start" id="second-text">{{step.description}}</p>
                 } @empty {
                     <p class="text-sm-start">Empty list of methods</p>
                 }
@@ -37,8 +37,11 @@
                 @for (ingredient of recipe.ingredients; track $index) {
                     <div class="form-check">
                         <label class="text-sm-start" id="third-text">
-                           {{ingredient}}
+                           {{ingredient.name}}
                         </label>
+                        <p class="text-sm-start" id="second-text">
+                            {{ingredient.description}}
+                        </p>
                         <hr>
                     </div>
                 } @empty {
