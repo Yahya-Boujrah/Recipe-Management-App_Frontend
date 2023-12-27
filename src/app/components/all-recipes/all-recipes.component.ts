@@ -14,19 +14,75 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './all-recipes.component.html',
   styleUrl: './all-recipes.component.css'
 })
-export class AllRecipesComponent implements OnInit{
+// export class AllRecipesComponent implements OnInit{
+export class AllRecipesComponent{
 
   private recipeService = inject(RecipeService);
 
   private searchService = inject(SearchService);
 
-  recipes !: Recipe[];
+  // recipes !: Recipe[];
 
-  ngOnInit(): void {
-    this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
-      this.recipes = response.data?.allRecipes;
-    });
-  }
+  recipes: Recipe[] = [
+    {
+      id: '1',
+      title: 'Sushi Easy Receipe',
+      description:
+        'descriptiondescriptiondescription description description description',
+      picture: '../../../assets/img/bg-img/r1.jpg',
+      category: { id: '1', name: 'cat1' },
+      createdAt: '2015-09-12',
+      ingredients: [
+        { name: 'sel', description: 'on ajout un petit peu du sel' },
+        { name: 'sel', description: 'on ajout un petit peu du sel' },
+      ],
+      instructions: [
+        { number: 1, description: "on ajout un petit peu du sel et du poivre"},
+        { number:2, description: "on ajout un petit peu du sel et du poivre"}
+      ]
+    },
+    {
+      id: '2',
+      title: 'Sushi Easy Receipe',
+      description:
+        'descriptiondescriptiondescription description description description',
+      picture: '../../../assets/img/bg-img/r2.jpg',
+      category: { id: '1', name: 'cat1' },
+      createdAt: '2015-09-12',
+      ingredients: [
+        { name: 'sel', description: 'on ajout un petit peu du sel' },
+        { name: 'sel', description: 'on ajout un petit peu du sel' },
+      ],
+      instructions: [
+        { number: 1, description: "on ajout un petit peu du sel et du poivre"},
+        { number:2, description: "on ajout un petit peu du sel et du poivre"}
+      ]
+    },
+    {
+      id: '3',
+      title: 'Sushi Easy Receipe',
+      description:
+        'descriptiondescriptiondescription description description description',
+      picture: '../../../assets/img/bg-img/r3.jpg',
+      category: { id: '1', name: 'cat1' },
+      createdAt: '2015-09-12',
+      ingredients: [
+        { name: 'sel', description: 'on ajout un petit peu du sel' },
+        { name: 'sel', description: 'on ajout un petit peu du sel' },
+      ],
+      instructions: [
+        { number: 1, description: "on ajout un petit peu du sel et du poivre"},
+        { number:2, description: "on ajout un petit peu du sel et du poivre"}
+      ]
+    },
+    
+  ];
+
+  // ngOnInit(): void {
+  //   this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
+  //     this.recipes = response.data?.allRecipes;
+  //   });
+  // }
 
   recipeDumps : { id: string, img: string , title:string}[] = [
     {id: "1", img: "assets/img/bg-img/r1.jpg", title: "Sushi Easy Receipe"},
