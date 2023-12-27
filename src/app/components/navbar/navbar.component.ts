@@ -7,6 +7,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { User } from '../../interfaces/user';
 
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -16,12 +17,16 @@ import { User } from '../../interfaces/user';
   providers: []
 })
 
+
 export class NavbarComponent {
 
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private loginService = inject(LoginService);
   private authToken!: string;
+
+  // storedToken = sessionStorage.getItem('token');
+  storedToken : string = '';
 
   home() : void{
     this.router.navigate(['']);
@@ -42,7 +47,6 @@ export class NavbarComponent {
 
   myRecipes() : void {
     this.router.navigate(['my-recipes'],{relativeTo: this.route});
-
   }
 
   login(form : NgForm) : any{
@@ -80,6 +84,12 @@ export class NavbarComponent {
     }, error => {
        alert("Authentication failed");
     })
+  }
+
+  logout() {
+    sessionStorage.removeItem('token');
+    this.authToken = '';
+    this.router.navigate(['']);
   }
   
 }

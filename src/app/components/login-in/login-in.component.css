@@ -1,6 +1,3 @@
-.body {
-  margin: 0;
-}
 .row {
   margin: 40px;
   height: auto;
@@ -12,6 +9,7 @@
   justify-content: center;
   text-align: center;
   margin: 40px;
+  animation: sideleft .5s ease forwards;
 }
 .form {
   max-width: 80%;
@@ -65,7 +63,9 @@
   max-width: 550px;
   border-radius: 20px;
   display: flex;
-  background-color: #575c62;;
+  background-color: #575c62;
+  animation: sideright .5s ease forwards;
+
 }
 .image {
   justify-content: center;
@@ -75,4 +75,22 @@
 .image-text {
   color: #ffffff;
   font-size: large !important;
+}
+
+@keyframes sideright {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes sideleft {
+  0% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }

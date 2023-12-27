@@ -9,9 +9,15 @@
           <li><a (click)="addRecipe()">Add Recipe</a></li>
           <li><a (click)="myRecipes()">My Recipes</a></li>
           <li><a (click)="aboutUs()">About Us</a></li>
-          <li>
-            <a data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a>
-          </li>
+          @if (storedToken) {
+            <li>
+              <a (click)="logout()">LogOut</a>
+            </li>
+          } @else {
+            <li>
+              <a data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a>
+            </li>
+          }
         </ul>
       </div>
     </nav>
