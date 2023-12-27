@@ -23,10 +23,13 @@ export class NavbarComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private loginService = inject(LoginService);
-  private authToken!: string;
+  private authToken : string = '';
 
-  // storedToken = sessionStorage.getItem('token');
-  storedToken : string = '';
+
+  get tokenExist (){
+
+    return sessionStorage.getItem('token') == undefined ?true : false ;
+  } 
 
   home() : void{
     this.router.navigate(['']);
@@ -87,6 +90,8 @@ export class NavbarComponent {
   }
 
   logout() {
+    console.log("token ",this.authToken);
+    
     sessionStorage.removeItem('token');
     this.authToken = '';
     this.router.navigate(['']);
