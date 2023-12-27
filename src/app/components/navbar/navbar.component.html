@@ -1,9 +1,7 @@
 <header class="header-area">
   <div class="main-menu container">
     <nav class="navbar">
-      <a class="logo" (click)="home()"
-        ><img src="/assets/img/core-img/logo.png" alt=""
-      /></a>
+      <a class="logo" (click)="home()"><img src="/assets/img/core-img/logo.png" alt="" /></a>
       <div class="nav">
         <ul class="nav-items">
           <li class="active"><a (click)="home()">Home</a></li>
@@ -21,57 +19,27 @@
 </header>
 
 <!--------------- Login Modal ---------------------->
-<div
-  class="modal"
-  tabindex="-1"
-  role="dialog"
-  id="LoginModal"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  aria-labelledby="LoginModalLabel"
-  aria-hidden="true"
->
+<div class="modal" tabindex="-1" role="dialog" id="LoginModal" data-bs-backdrop="static" data-bs-keyboard="false"
+  aria-labelledby="LoginModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
 
         <form class="text-center" #loginForm="ngForm" id="login-form">
-          <p class="h4 mb-4" id="form-title">Log in</p>
-          <input
-            type="email"
-            class="form-control mb-4 input"
-            placeholder="E-mail"
-            ngModel
-            name="email"
-            required
-          />
-          <input
-            type="password"
-            class="form-control mb-4 input"
-            placeholder="Password"
-            ngModel
-            name="password"
-            required
-          />
-          <button
-            color="info"
-            class="form-control mb-4 button"
-            type="submit"
-            (click)="login(loginForm)"
-          >
-            Log in
+          <a class="logo  mb-4" data-bs-dismiss="modal" (click)="home()"><img src="/assets/img/core-img/logo.png" style="width:90%" /></a>
+          <p  class="form-title mb-3">LOGIN</p>
+           <!-- <p class="mb-3" id="form-title">GET OUR BEST</p> -->
+
+            <input type="email" class="form-control mb-2 input" placeholder="E-mail" ngModel name="email" required />
+            <input type="password" class="form-control mb-3 input" placeholder="Password" ngModel name="password"
+              required />
+          <button color="info" class="form-control mb-3 button" type="submit" (click)="login(loginForm)">
+            Login
           </button>
-          <a type="button" data-bs-toggle="modal" data-bs-target="#SignUpModal"
-            >You don't have an account yet?</a
-          >
+          <a type="button" data-bs-toggle="modal" data-bs-target="#SignUpModal" class="link">You don't have an account yet?</a>
+          <button type="button " data-bs-dismiss="modal" aria-label="Close" class="button mt-4" style="width: min-content;">Not Now</button>
         </form>
 
-        <button
-          type="button"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-          class="button"
-        >Not Now</button>
 
       </div>
     </div>
@@ -79,74 +47,28 @@
 </div>
 
 <!------------------- SignUp Modal ---------------->
-<div
-  class="modal fade bd-example-modal-xl"
-  tabindex="-1"
-  role="dialog"
-  id="SignUpModal"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  aria-labelledby="SignUpModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" id="SignUpModal" data-bs-backdrop="static"
+  data-bs-keyboard="false" aria-labelledby="SignUpModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
-        <form class="text-center" #signupForm="ngForm" id="signup-form">
-          <p class="h4 mb-4">Sign up</p>
-          <input
-            type="text"
-            class="form-control mb-4 input"
-            placeholder="First name"
-            name="firstName"
-            ngModel
-            required
-          />
-          <input
-            type="text"
-            class="form-control mb-4 input"
-            placeholder="Last name"
-            name="lastName"
-            ngModel
-            required
-          />
-          <input
-            type="email"
-            class="form-control m mb-4 input"
-            placeholder="E-mail"
-            name="email"
-            ngModel
-            required
-          />
-          <input
-            type="password"
-            class="form-control mb-4 input"
-            placeholder="Password"
-            name="password"
-            ngModel
-            required
-          />
+        <form class="text-center" #signupForm="ngForm" id="login-form">
+          <a class="logo  mb-3" data-bs-dismiss="modal" (click)="home()"><img src="/assets/img/core-img/logo.png" style="width:90%" /></a>
+          <p  class="form-title mb-2">SIGNIN</p>
+          <input type="text" class="form-control mb-2 input" placeholder="First name" name="firstName" ngModel
+            required />
+          <input type="text" class="form-control mb-2 input" placeholder="Last name" name="lastName" ngModel required />
+          <input type="email" class="form-control mb-2 input" placeholder="E-mail" name="email" ngModel required />
+          <input type="password" class="form-control mb-3 input" placeholder="Password" name="password" ngModel
+            required />
 
-          <button
-            mdbBtn
-            color="info"
-            block="true"
-            class="form-control mb-4 button"
-            type="submit"
-            (click)="register(signupForm)"
-          >
+          <button mdbBtn color="info" block="true" class="form-control mb-2 button" type="submit"
+            (click)="register(signupForm)">
             Sign up
           </button>
-          <a type="button" data-bs-toggle="modal" data-bs-target="#LoginModal"
-            >You already have an account?</a
-          >
+          <a type="button" data-bs-toggle="modal" data-bs-target="#LoginModal" class="link" >You already have an account?</a>
         </form>
-        <button
-          type="button"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-          class="button"
-        >Not Now</button>
+        <button type="button" data-bs-dismiss="modal" aria-label="Close" class="button mt-3" style="width: min-content;">Not Now</button>
       </div>
     </div>
   </div>

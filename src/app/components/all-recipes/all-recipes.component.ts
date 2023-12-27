@@ -5,6 +5,7 @@ import { SingleRecipeComponent } from '../single-recipe/single-recipe.component'
 import { PageHeaderComponent } from '../page-header/page-header.component';
 import { Recipe } from '../../interfaces/recipe';
 import { RecipeService } from '../../services/recipe.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-all-recipes',
@@ -17,12 +18,14 @@ export class AllRecipesComponent implements OnInit{
 
   private recipeService = inject(RecipeService);
 
+  private searchService = inject(SearchService);
+
   recipes !: Recipe[];
 
   ngOnInit(): void {
-    this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
-      this.recipes = response.data?.allRecipes;
-    });
+    // this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
+    //   this.recipes = response.data?.allRecipes;
+    // });
   }
 
   recipeDumps : { id: string, img: string , title:string}[] = [
@@ -40,6 +43,22 @@ export class AllRecipesComponent implements OnInit{
     {id: "3", img: "assets/img/bg-img/r3.jpg", title: "Vegan Smoothie"},
 
   ]
+
+  doSearch(value: string){
+    this.searchService.recipesByCategory(value).subscribe();
+  }
+
+  getByCategory(category : string){
+    console.log(category);
+    
+    this.searchService.recipesByCategory(category).subscribe((response: any) => {
+      this.recipes = response;
+    });
+
+    console.log(this.recipes);
+    
+
+  }
 }
 
 

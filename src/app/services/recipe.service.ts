@@ -51,15 +51,6 @@ export class RecipeService {
       `,
       })
   }
-  submitRecipe = gql`
-  mutation addRecipe(
-    $recipe: RecipeInput!
-  ) {
-    book(title: $title, authors: $authors, pages: $pages, chapters: $chapters) {
-      id
-    }
-  }
-`;
 
   addRecipe(recipe: RecipeInput) {
     return this.apollo
