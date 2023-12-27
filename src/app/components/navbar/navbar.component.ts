@@ -23,7 +23,9 @@ export class NavbarComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private loginService = inject(LoginService);
-  private authToken : string = '';
+  private authToken!: string;
+  activeLink: string = 'home';
+
 
 
   get tokenExist (){
@@ -32,23 +34,29 @@ export class NavbarComponent {
   } 
 
   home() : void{
+    this.activeLink = 'home';
     this.router.navigate(['']);
   }
 
   aboutUs() : void {  
+    this.activeLink = 'aboutUs';
     this.router.navigate(['about-us'],{relativeTo: this.route});
   }
 
   allRecipes() : void {
+    this.activeLink = 'allRecipes';
     this.router.navigate(['all-recipes'],{relativeTo: this.route});
+
 
   }
   addRecipe() : void {
+    this.activeLink = 'addRecipe';
     this.router.navigate(['add-recipe'],{relativeTo: this.route});
 
   }
 
   myRecipes() : void {
+    this.activeLink = 'myRecipes';
     this.router.navigate(['my-recipes'],{relativeTo: this.route});
   }
 
@@ -61,7 +69,7 @@ export class NavbarComponent {
       if (response) {
         this.authToken = response.token;
         sessionStorage.setItem('token', this.authToken);
-        this.router.navigate([''], {relativeTo: this.route});
+        // this.router.navigate([''], {relativeTo: this.route});
     
       }else{
         alert("Authentication failed");
@@ -79,7 +87,7 @@ export class NavbarComponent {
       if (response) {
         this.authToken = response.token;
         sessionStorage.setItem('token', this.authToken);
-        this.router.navigate([''], {relativeTo: this.route});
+        // this.router.navigate([''], {relativeTo: this.route});
     
       }else{
         alert("Authentication failed");

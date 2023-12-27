@@ -13,7 +13,8 @@
                 <p class="text-sm-start">{{recipe.description}}</p>
                 <p class="text-sm-start" id="second-text">Category: <strong>{{recipe.category.name}}</strong></p>
                 <p class="text-sm-start" id="second-text">Created At: <strong>{{recipe.createdAt}}</strong></p>
-                <p class="text-sm-start"id="second-text">Created By: <strong>{{recipe.user?.firstName}} | {{recipe.user?.lastName}}</strong></p>
+                <p class="text-sm-start" id="second-text">Created By: <strong>{{recipe.user?.firstName}} |
+                        {{recipe.user?.lastName}}</strong></p>
             </div>
         </div>
     </div>
@@ -26,9 +27,9 @@
                     <label class="step"> Step {{step.number}}</label><hr>
                     <p class="text-sm-start" id="second-text">{{step.description}}</p>
                 } @empty {
-                    <p class="text-sm-start">Empty list of methods</p>
+                <p class="text-sm-start">Empty list of methods</p>
                 }
-                
+
             </div>
         </div>
         <div class="col">
@@ -45,7 +46,7 @@
                         <hr>
                     </div>
                 } @empty {
-                    <p class="text-sm-start">Empty list of ingredients</p>
+                <p class="text-sm-start">Empty list of ingredients</p>
                 }
             </div>
         </div>
