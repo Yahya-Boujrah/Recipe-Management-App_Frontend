@@ -8,6 +8,7 @@ import { LoginInComponent } from './components/login-in/login-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { authGuard } from './auth.guard';
 import { MyRecipesComponent } from './components/my-recipes/my-recipes.component';
+import { SingleRecipePostComponent } from './components/single-recipe-post/single-recipe-post.component';
 
 export const routes: Routes = [
     
@@ -27,7 +28,11 @@ export const routes: Routes = [
                 path: 'about-us', component: AboutUsComponent
             },
             {
-                path: 'all-recipes', component: AllRecipesComponent
+                path: 'all-recipes', component: AllRecipesComponent, children: [
+                    {
+                        path: 'singleRecipepost', component: SingleRecipePostComponent
+                    }
+                ]
             },
             {
                 path: 'add-recipe', canActivate: [authGuard] ,component: AddRecipeComponent
@@ -37,6 +42,5 @@ export const routes: Routes = [
             },
         ]
     }
-
 
 ];

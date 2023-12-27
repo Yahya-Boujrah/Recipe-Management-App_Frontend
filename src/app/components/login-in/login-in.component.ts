@@ -42,5 +42,5 @@ export class LoginInComponent {
   }
   
 
-  // validation / single recipe post (state pour passer l objet entre les components b routing) / sign in - sign up (switch) /  button login to logout / about us text 
+  // validation / single recipe post (state pour passer l objet entre les components b routing) / sign in - sign up (switch) V /  button login to logout V / about us text 
 }

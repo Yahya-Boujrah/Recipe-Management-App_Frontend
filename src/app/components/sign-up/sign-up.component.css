@@ -1,14 +1,15 @@
   .row {
-    margin: 40px;
+    margin: 40px 100px;
     height: auto;
   }
   .col {
     padding: 20px 5px;
   }
-  .leftside {
+  .rightside {
     justify-content: center;
     text-align: center;
     margin: 20px;
+    animation: sideright .5s ease forwards;
   }
   .form {
     max-width: 80%;
@@ -49,7 +50,7 @@
     border-radius: 20px !important;
     line-height: 50px !important;
   }
-  .rightside {
+  .leftside {
     background-image: url(https://source.unsplash.com/7MAjXGUmaPw/600x700);
     background-size: cover;
     background-repeat: no-repeat;
@@ -63,7 +64,9 @@
     max-width: 550px;
     border-radius: 20px;
     display: flex;
-    background-color: #575c62;;
+    background-color: #575c62;
+    animation: sideleft .5s ease forwards;
+
   }
   .image {
     justify-content: center;
@@ -72,4 +75,22 @@
   }
   .image-text {
     color: #ffffff;
+  }
+
+  @keyframes sideright {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(40px);
+    }
+  }
+
+  @keyframes sideleft {
+    0% {
+      transform: translateX(40px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
   }
