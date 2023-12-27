@@ -9,7 +9,7 @@
         </div>
 
         <div class="row">
-            @for (recipe of recipes; track recipe.id) {
+            @for (recipe of top6Recipes; track recipe.id) {
             <div class="col-12 col-sm-6 col-lg-4">
                 <app-single-recipe [recipe]="recipe"></app-single-recipe>
             </div>

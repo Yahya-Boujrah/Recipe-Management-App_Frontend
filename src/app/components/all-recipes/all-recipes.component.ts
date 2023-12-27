@@ -10,12 +10,12 @@ import { SearchService } from '../../services/search.service';
 @Component({
   selector: 'app-all-recipes',
   standalone: true,
-  imports: [CommonModule,SingleRecipeComponent, PageHeaderComponent],
+  imports: [CommonModule, SingleRecipeComponent, PageHeaderComponent],
   templateUrl: './all-recipes.component.html',
   styleUrl: './all-recipes.component.css'
 })
 // export class AllRecipesComponent implements OnInit{
-export class AllRecipesComponent{
+export class AllRecipesComponent {
 
   private recipeService = inject(RecipeService);
 
@@ -37,8 +37,8 @@ export class AllRecipesComponent{
         { name: 'sel', description: 'on ajout un petit peu du sel' },
       ],
       instructions: [
-        { number: 1, description: "on ajout un petit peu du sel et du poivre"},
-        { number:2, description: "on ajout un petit peu du sel et du poivre"}
+        { number: 1, description: "on ajout un petit peu du sel et du poivre" },
+        { number: 2, description: "on ajout un petit peu du sel et du poivre" }
       ]
     },
     {
@@ -54,8 +54,8 @@ export class AllRecipesComponent{
         { name: 'sel', description: 'on ajout un petit peu du sel' },
       ],
       instructions: [
-        { number: 1, description: "on ajout un petit peu du sel et du poivre"},
-        { number:2, description: "on ajout un petit peu du sel et du poivre"}
+        { number: 1, description: "on ajout un petit peu du sel et du poivre" },
+        { number: 2, description: "on ajout un petit peu du sel et du poivre" }
       ]
     },
     {
@@ -71,48 +71,51 @@ export class AllRecipesComponent{
         { name: 'sel', description: 'on ajout un petit peu du sel' },
       ],
       instructions: [
-        { number: 1, description: "on ajout un petit peu du sel et du poivre"},
-        { number:2, description: "on ajout un petit peu du sel et du poivre"}
+        { number: 1, description: "on ajout un petit peu du sel et du poivre" },
+        { number: 2, description: "on ajout un petit peu du sel et du poivre" }
       ]
     },
-    
+
   ];
 
-  // ngOnInit(): void {
-  //   this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
-  //     this.recipes = response.data?.allRecipes;
-  //   });
-  // }
+  ngOnInit(): void {
+    this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
+      this.recipes = response.data?.allRecipes;
+    });
+  }
 
-  recipeDumps : { id: string, img: string , title:string}[] = [
-    {id: "1", img: "assets/img/bg-img/r1.jpg", title: "Sushi Easy Receipe"},
-    {id: "2", img: "assets/img/bg-img/r2.jpg", title: "Homemade Burger"},
-    {id: "3", img: "assets/img/bg-img/r3.jpg", title: "Vegan Smoothie"},
-    {id: "4", img: "assets/img/bg-img/r4.jpg", title: "Calabasa soup"},
-    {id: "5", img: "assets/img/bg-img/r5.jpg", title: "Homemade Breakfast"},
-    {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
-    {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
-    {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
-    {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
-    {id: "6", img: "assets/img/bg-img/r6.jpg", title: "Healthy Fruit Desert"},
-    {id: "3", img: "assets/img/bg-img/r3.jpg", title: "Vegan Smoothie"},
-    {id: "3", img: "assets/img/bg-img/r3.jpg", title: "Vegan Smoothie"},
-
-  ]
-
-  doSearch(value: string){
+  doSearch(value: string) {
     this.searchService.searchInFields(value).subscribe();
   }
 
-  getByCategory(category : string){
+  getByCategory(category: string) {
     console.log(category);
-    
+
     this.searchService.recipesByCategory(category).subscribe((response: any) => {
-      this.recipes = response;
+      this.recipes = response.data.recipesByCategory;
     });
 
     console.log(this.recipes);
-    
+
+  }
+
+  sortData(sort: string) {
+    console.log(sort);
+
+    if (sort == '') {
+      this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
+        this.recipes = response.data?.allRecipes;
+      });
+    } else if (sort == 'Latest') {
+      this.searchService.sortRecipesByDate().subscribe((response: any) => {
+        this.recipes = response.data.sortRecipesByDate;
+      });
+
+    } else if (sort == 'TopRated') {
+      this.searchService.sortRecipesByRating().subscribe((response: any) => {
+        this.recipes = response.data.sortRecipesByRating;
+      });
+    }
   }
 }
 
