@@ -1,55 +1,72 @@
   .row {
-    margin: 40px 100px;
-    height: auto;
+    margin-top: 6rem;
+    align-items: center;
+    justify-content: center;
   }
-  .col {
-    padding: 20px 5px;
-  }
+ 
   .rightside {
     justify-content: center;
     text-align: center;
-    margin: 20px;
     animation: sideright .5s ease forwards;
   }
   .form {
     max-width: 80%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  
   }
-  .title{
-    padding: 40px;
+  .title {
+    font-size: 15px;
   }
-  .input-title{
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .title {
+    font-size: 15px;
+  }
+  
+  .form-title {
+    font-size: 17px;
+  
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
+    font-weight: bold;
     font-size: large;
-    padding: 5px;
   }
-  .input {
-    height: 40px;
-    width: 100%;
-    background-color: #d6fcd3 !important;
-    border: 2px solid #ffffff;
-    font-size: 12px;
-    font-style: italic;
-    margin-bottom: 15px;
-    border: none;
-    border-left: 3px solid #40ba37 ;
-    border-radius: 20px;
-    padding: 15px 30px;
-    transition-duration: 500ms;
-    outline: none;
-  }
-  
-  .input:focus {
-    border-left: 3px solid #d6fcd3 !important;
-    box-shadow: none;
-  }
-  
-  .button {
-    height: 50px !important;
-    border-radius: 20px !important;
-    line-height: 50px !important;
-  }
+
+ .input {
+  height: 60px;
+  width: 90%;
+  background-color: #f3f5f8;
+  border: 2px solid #ffffff;
+  font-size: 12px;
+  font-style: italic;
+  border: none;
+  border-left: 3px solid #f3f5f8;
+  border-radius: 15px;
+  padding: 15px 30px;
+  transition-duration: 500ms;
+  outline: none;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 2rem;
+}
+
+.input:focus {
+  box-shadow: none;
+  border-left: 3px solid #40ba37;
+}
+.button {
+  height: 60px !important;
+  border-radius: 15px !important;
+  line-height: 50px !important;
+
+}
   .leftside {
     background-image: url(https://source.unsplash.com/7MAjXGUmaPw/600x700);
     background-size: cover;

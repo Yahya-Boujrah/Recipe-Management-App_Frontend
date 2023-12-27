@@ -1,33 +1,29 @@
-<!-- <div class="body"> -->
-  <div class="row">
-    <div class="col">
-        <div class="leftside">
-            <div class="image">
-                <h2 class="image-text">Welcome Back</h2>
-                <p class="image-text">Already signed up, enter your details and start cooking your first meal today</p>
-                <input type="button" value="LogIn" class="button" (click)="login()">
-            </div>
+<section class="row">
+    <div class="col-12 col-lg-6 leftside">
+        <div class="image">
+            <h2 class="image-text">Welcome Back</h2>
+            <p class="image-text">Already signed up, enter your details and start cooking your first meal today</p>
+            <input type="button" value="LogIn" class="button" (click)="login()">
         </div>
     </div>
-    <div class="col">
-        <div class="rightside">
-            <div class="form">
+    
+    <div class="col-12 col-lg-6 rightside">
+        <div class="form">
+            <div class="header">
+                <a class="logo  mb-4"><img src="/assets/img/core-img/logo.png" /></a>
                 <div class="title">
-                    <h3>Sign Up</h3>
+                    <p class="form-title mb-3">SIGNUP</p>
+                    <p class="mb-3" id="form-title">GET OUR BEST
+                        RECIPES</p>
                 </div>
-                <form id="form" #signupForm="ngForm">
-                  <label class="input-title">Fisrt Name: </label>
-                  <input type="text" name="firstName" class="input" ngModel required><br>
-                  <label class="input-title">Last Name: </label>
-                  <input type="text" name="lastName" class="input" ngModel required><br>
-                  <label class="input-title">Email: </label>
-                  <input type="email" name="email" class="input" ngModel required><br>
-                  <label class="input-title">Password: </label>
-                  <input type="password" name="password" class="input" ngModel required><br>
-                  <input type="button" value="SignUp" class="button" (click)="register(signupForm)">
-                </form>
             </div>
+            <form id="form" #signupForm="ngForm">
+                <input type="text" name="firstName" class="input" placeholder="Fisrt Name" ngModel required><br>
+                <input type="text" name="lastName" class="input" placeholder="Last Name" ngModel required><br>
+                <input type="email" name="email" class="input" placeholder="E-mail" ngModel required><br>
+                <input type="password" name="password" class="input" placeholder="Password" ngModel required><br>
+                <input type="button" value="SignUp" class="button" (click)="register(signupForm)">
+            </form>
         </div>
     </div>
-</div>
-<!-- </div> -->
+</section>

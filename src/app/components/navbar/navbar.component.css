@@ -100,7 +100,7 @@ img {
     border-radius: 15px !important;
     line-height: 35px !important;
     background-color: transparent !important;
-    border: 2px solid #1c8314 !important;
+    border: 2px solid #40ba37 !important;
     color: currentcolor !important;
     padding: 0 !important;
     width: 85%;
@@ -108,8 +108,9 @@ img {
 
 .button:hover {
     color: #ffffff !important;
-    background-color: #3c5a36 !important;
+    background-color: #40ba37 !important;
     border-color: #40ba37 !important;
+    box-shadow: none;
 }
 
   .input:focus{

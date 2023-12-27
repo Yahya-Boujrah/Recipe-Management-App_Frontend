@@ -1,54 +1,75 @@
 .row {
-  margin: 40px;
-  height: auto;
+  margin-top: 6rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-.col {
-  padding: 20px 5px;
-}
+
 .leftside {
   justify-content: center;
   text-align: center;
-  margin: 40px;
+  margin-top: 4rem;
   animation: sideleft .5s ease forwards;
 }
+
 .form {
   max-width: 80%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
 }
-.title{
-  padding: 70px;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.input-title{
+
+.title {
+  font-size: 15px;
+}
+
+.form-title {
+  font-size: 17px;
+
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   font-size: large;
-  padding: 5px;
 }
+
+
 .input {
-  height: 40px;
-  width: 100%;
-  background-color: #d6fcd3 !important;
+  height: 60px;
+  width: 90%;
+  background-color: #f3f5f8;
   border: 2px solid #ffffff;
   font-size: 12px;
   font-style: italic;
-  margin-bottom: 15px;
   border: none;
-  border-left: 3px solid #40ba37 ;
-  border-radius: 20px;
+  border-left: 3px solid #f3f5f8;
+  border-radius: 15px;
   padding: 15px 30px;
   transition-duration: 500ms;
   outline: none;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 2rem;
 }
+
 .input:focus {
-  border-left: 3px solid #40ba37;
   box-shadow: none;
+  border-left: 3px solid #40ba37;
 }
 
 .button {
-  height: 50px !important;
-  border-radius: 20px !important;
+  height: 60px !important;
+  border-radius: 15px !important;
   line-height: 50px !important;
+
 }
+
 .rightside {
   background-image: url(https://source.unsplash.com/7MAjXGUmaPw/600x700);
   background-size: cover;
@@ -67,11 +88,13 @@
   animation: sideright .5s ease forwards;
 
 }
+
 .image {
   justify-content: center;
   text-align: center;
   margin-top: 200px;
 }
+
 .image-text {
   color: #ffffff;
   font-size: large !important;
@@ -81,6 +104,7 @@
   0% {
     transform: translateX(0px);
   }
+
   100% {
     transform: translateX(10px);
   }
@@ -90,6 +114,7 @@
   0% {
     transform: translateX(10px);
   }
+
   100% {
     transform: translateX(0px);
   }
