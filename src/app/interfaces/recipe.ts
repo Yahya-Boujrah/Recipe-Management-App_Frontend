@@ -11,7 +11,7 @@ export interface Recipe {
     category : Category;
     rating?: number;
     user?: User;
-    createdAt : string;
+    createdAt ?: string;
     ingredients : Ingredient[];
     instructions : Instruction[];
 }

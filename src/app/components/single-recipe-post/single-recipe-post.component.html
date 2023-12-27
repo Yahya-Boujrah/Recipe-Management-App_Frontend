@@ -24,9 +24,8 @@
             <div class="steps">
                 <label class="parag-title"> How To Make It</label><br>
                 @for (step of recipe.instructions; track $index) {
-                <label class="step"> Step {{step.number}}</label>
-                <hr>
-                <p class="text-sm-start" id="second-text">{{step.description}}</p>
+                    <label class="step"> Step {{step.number}}</label><hr>
+                    <p class="text-sm-start" id="second-text">{{step.description}}</p>
                 } @empty {
                 <p class="text-sm-start">Empty list of methods</p>
                 }
@@ -37,15 +36,15 @@
             <div class="ingredients">
                 <label class="parag-title"> Ingredients</label><br>
                 @for (ingredient of recipe.ingredients; track $index) {
-                <div class="form-check">
-                    <label class="text-sm-start" id="third-text">
-                        {{ingredient.name}}
-                    </label>
-                    <p class="text-sm-start" id="second-text"> 
-                        {{ingredient.description}}
-                    </p>
-                    <hr>
-                </div>
+                    <div class="form-check">
+                        <label class="text-sm-start" id="third-text">
+                           {{ingredient.name}}
+                        </label>
+                        <p class="text-sm-start" id="second-text">
+                            {{ingredient.description}}
+                        </p>
+                        <hr>
+                    </div>
                 } @empty {
                 <p class="text-sm-start">Empty list of ingredients</p>
                 }
