@@ -7,7 +7,6 @@ import { Recipe } from '../../interfaces/recipe';
 import { RecipeService } from '../../services/recipe.service';
 import { SearchService } from '../../services/search.service';
 import { forkJoin } from 'rxjs';
-import { response } from 'express';
 
 @Component({
   selector: 'app-all-recipes',
@@ -22,60 +21,7 @@ export class AllRecipesComponent implements OnInit{
 
   private searchService = inject(SearchService);
 
-  recipes: Recipe[] = [
-    // {
-    //   id: '1',
-    //   title: 'Sushi Easy Receipe',
-    //   description:
-    //     'descriptiondescriptiondescription description description description',
-    //   picture: '/assets/recipes/tiramisu.jpg',
-    //   category: { id: '1', name: 'cat1' },
-    //   createdAt: '2015-09-12',
-    //   ingredients: [
-    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
-    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
-    //   ],
-    //   instructions: [
-    //     { number: 1, description: "on ajout un petit peu du sel et du poivre" },
-    //     { number: 2, description: "on ajout un petit peu du sel et du poivre" }
-    //   ]
-    // },
-    // {
-    //   id: '2',
-    //   title: 'Sushi Easy Receipe',
-    //   description:
-    //     'descriptiondescriptiondescription description description description',
-    //   picture: '/assets/recipes/flourless-cake.jpg',
-    //   category: { id: '1', name: 'cat1' },
-    //   createdAt: '2015-09-12',
-    //   ingredients: [
-    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
-    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
-    //   ],
-    //   instructions: [
-    //     { number: 1, description: "on ajout un petit peu du sel et du poivre" },
-    //     { number: 2, description: "on ajout un petit peu du sel et du poivre" }
-    //   ]
-    // },
-    // {
-    //   id: '3',
-    //   title: 'Sushi Easy Receipe',
-    //   description:
-    //     'descriptiondescriptiondescription description description description',
-    //   picture: '/assets/recipes/crispy-chicken.jpeg',
-    //   category: { id: '1', name: 'cat1' },
-    //   createdAt: '2015-09-12',
-    //   ingredients: [
-    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
-    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
-    //   ],
-    //   instructions: [
-    //     { number: 1, description: "on ajout un petit peu du sel et du poivre" },
-    //     { number: 2, description: "on ajout un petit peu du sel et du poivre" }
-    //   ]
-    // },
-
-  ];
+  recipes: Recipe[] = [];
 
   allRecipes(){
     this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
@@ -148,10 +94,15 @@ export class AllRecipesComponent implements OnInit{
   getByCategory(category: string) {
     console.log(category);
 
-    this.searchService.recipesByCategory(category).subscribe((response: any) => {
-      this.recipes = response.data.recipesByCategory;
-    });
+    if(category == 'all'){
+      this.allRecipes();
 
+    }else{
+      this.searchService.recipesByCategory(category).subscribe((response: any) => {
+        this.recipes = response.data.recipesByCategory;
+      });
+    }
+   
     console.log(this.recipes);
 
   }
