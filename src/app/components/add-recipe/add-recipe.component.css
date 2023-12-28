@@ -80,3 +80,16 @@ textarea.form-control {
 .icon-plus{
     margin-right: 10px;
 }
+.nice-select {
+    height: 52px;
+    width: 100%;
+    background-color: #f3f5f8;
+    font-size: 12px;
+    font-style: italic;
+    border: none;
+    border-left: 3px solid #f3f5f8;
+    border-radius: 0;
+    padding: 0 30px;
+    outline: none;
+
+}

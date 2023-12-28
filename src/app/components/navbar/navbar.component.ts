@@ -47,23 +47,33 @@ export class NavbarComponent {
 
   }
   addRecipe(): void {
-    const token = sessionStorage.getItem("token");
-    if (token) {
+    console.log("efwelfnlowehfoiwildf");
+
+    console.log(this.tokenExist);
+    if (!this.tokenExist) {
       this.activeLink = 'addRecipe';
       this.router.navigate(['add-recipe'], { relativeTo: this.route });
+    }else{
+      console.log("efwelfnlowehfoiwildf");
+
+      console.log(this.tokenExist);
+      this.router.navigate(['login']);
+
     }
-    this.router.navigate(['login']);
 
   }
 
   myRecipes(): void {
-    const token = sessionStorage.getItem("token");
-
-    if (token) {
+    console.log("efwelfnlowehfoiwildf");
+    
+    console.log(" token exist ",this.tokenExist);
+    
+    if (!this.tokenExist) {
       this.activeLink = 'myRecipes';
       this.router.navigate(['my-recipes'], { relativeTo: this.route });
+    }else{
+      this.router.navigate(['login']);
     }
-    this.router.navigate(['login']);
 
   }
 

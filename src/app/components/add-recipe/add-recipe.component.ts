@@ -81,6 +81,8 @@ export class AddRecipeComponent {
     // console.log("from " + JSON.parse(JSON.stringify(recipeForm)));
     
     console.log("value" + JSON.stringify(recipeForm.value));
+    console.log("category ", recipeForm.value.category);
+    
 
     const recipe : Recipe = {
       id:  this.generateUUID(),

@@ -13,6 +13,7 @@ h1,h2 {
     margin-bottom: 20px;
     transition-duration: 500ms;
     overflow: hidden;
+    height: 300px;
 }
 
 .single-catagory img {

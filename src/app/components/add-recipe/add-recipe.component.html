@@ -7,7 +7,14 @@
                     <input type="text" class="form-control" name="title" placeholder="Title" ngModel required>
                 </div>
                 <div class="col-12 col-lg-6">
-                    <input type="text" class="form-control" name="category" placeholder="Category" ngModel required>
+                    <!-- <input type="text" class="form-control" name="category" placeholder="Category" ngModel required> -->
+                    <select name="category" class="nice-select"  ngModel required>
+                        <option value="" disabled selected hidden>Category</option> 
+                        <option value="Desserts">Desserts</option>
+                        <option value="Pasta">Pasta</option>
+                        <option value="Meat And Poultry">Meat and Poultry</option>
+                        <option value="Breakfast and Brunch">Breakfast and Brunch</option>
+                    </select>
                 </div>
                 <div class="col-12">
                     <input type="file" class="form-control" name="picture" placeholder="Picture" ngModel>
