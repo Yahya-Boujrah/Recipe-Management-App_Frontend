@@ -27,3 +27,9 @@ h5:hover,
 .trash-icon {
     text-align: end;
 }
+
+.star-icon {
+    font-size: 15px;
+    color: #fbb710;
+    padding: 0 3px;
+}

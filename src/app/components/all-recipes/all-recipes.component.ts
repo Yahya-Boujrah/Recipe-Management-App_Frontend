@@ -7,6 +7,7 @@ import { Recipe } from '../../interfaces/recipe';
 import { RecipeService } from '../../services/recipe.service';
 import { SearchService } from '../../services/search.service';
 import { forkJoin } from 'rxjs';
+import { response } from 'express';
 
 @Component({
   selector: 'app-all-recipes',
@@ -15,8 +16,7 @@ import { forkJoin } from 'rxjs';
   templateUrl: './all-recipes.component.html',
   styleUrl: './all-recipes.component.css'
 })
-// export class AllRecipesComponent implements OnInit{
-export class AllRecipesComponent {
+export class AllRecipesComponent implements OnInit{
 
   private recipeService = inject(RecipeService);
 
@@ -24,61 +24,60 @@ export class AllRecipesComponent {
 
   // recipes !: Recipe[];
 
-  recipes: Recipe[] = [];
-  // [
-  //   {
-  //     id: '1',
-  //     title: 'Sushi Easy Receipe',
-  //     description:
-  //       'descriptiondescriptiondescription description description description',
-  //     picture: '../../../assets/img/bg-img/r1.jpg',
-  //     category: { id: '1', name: 'cat1' },
-  //     createdAt: '2015-09-12',
-  //     ingredients: [
-  //       { name: 'sel', description: 'on ajout un petit peu du sel' },
-  //       { name: 'sel', description: 'on ajout un petit peu du sel' },
-  //     ],
-  //     instructions: [
-  //       { number: 1, description: "on ajout un petit peu du sel et du poivre" },
-  //       { number: 2, description: "on ajout un petit peu du sel et du poivre" }
-  //     ]
-  //   },
-  //   {
-  //     id: '2',
-  //     title: 'Sushi Easy Receipe',
-  //     description:
-  //       'descriptiondescriptiondescription description description description',
-  //     picture: '../../../assets/img/bg-img/r2.jpg',
-  //     category: { id: '1', name: 'cat1' },
-  //     createdAt: '2015-09-12',
-  //     ingredients: [
-  //       { name: 'sel', description: 'on ajout un petit peu du sel' },
-  //       { name: 'sel', description: 'on ajout un petit peu du sel' },
-  //     ],
-  //     instructions: [
-  //       { number: 1, description: "on ajout un petit peu du sel et du poivre" },
-  //       { number: 2, description: "on ajout un petit peu du sel et du poivre" }
-  //     ]
-  //   },
-  //   {
-  //     id: '3',
-  //     title: 'Sushi Easy Receipe',
-  //     description:
-  //       'descriptiondescriptiondescription description description description',
-  //     picture: '../../../assets/img/bg-img/r3.jpg',
-  //     category: { id: '1', name: 'cat1' },
-  //     createdAt: '2015-09-12',
-  //     ingredients: [
-  //       { name: 'sel', description: 'on ajout un petit peu du sel' },
-  //       { name: 'sel', description: 'on ajout un petit peu du sel' },
-  //     ],
-  //     instructions: [
-  //       { number: 1, description: "on ajout un petit peu du sel et du poivre" },
-  //       { number: 2, description: "on ajout un petit peu du sel et du poivre" }
-  //     ]
-  //   },
+  recipes: Recipe[] = [
+    // {
+    //   id: '1',
+    //   title: 'Sushi Easy Receipe',
+    //   description:
+    //     'descriptiondescriptiondescription description description description',
+    //   picture: '../../../assets/img/bg-img/r1.jpg',
+    //   category: { id: '1', name: 'cat1' },
+    //   createdAt: '2015-09-12',
+    //   ingredients: [
+    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
+    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
+    //   ],
+    //   instructions: [
+    //     { number: 1, description: "on ajout un petit peu du sel et du poivre" },
+    //     { number: 2, description: "on ajout un petit peu du sel et du poivre" }
+    //   ]
+    // },
+    // {
+    //   id: '2',
+    //   title: 'Sushi Easy Receipe',
+    //   description:
+    //     'descriptiondescriptiondescription description description description',
+    //   picture: '../../../assets/img/bg-img/r2.jpg',
+    //   category: { id: '1', name: 'cat1' },
+    //   createdAt: '2015-09-12',
+    //   ingredients: [
+    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
+    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
+    //   ],
+    //   instructions: [
+    //     { number: 1, description: "on ajout un petit peu du sel et du poivre" },
+    //     { number: 2, description: "on ajout un petit peu du sel et du poivre" }
+    //   ]
+    // },
+    // {
+    //   id: '3',
+    //   title: 'Sushi Easy Receipe',
+    //   description:
+    //     'descriptiondescriptiondescription description description description',
+    //   picture: '../../../assets/img/bg-img/r3.jpg',
+    //   category: { id: '1', name: 'cat1' },
+    //   createdAt: '2015-09-12',
+    //   ingredients: [
+    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
+    //     { name: 'sel', description: 'on ajout un petit peu du sel' },
+    //   ],
+    //   instructions: [
+    //     { number: 1, description: "on ajout un petit peu du sel et du poivre" },
+    //     { number: 2, description: "on ajout un petit peu du sel et du poivre" }
+    //   ]
+    // },
 
-  // ];
+  ];
 
   ngOnInit(): void {
     this.recipeService.allRecipe().valueChanges.subscribe((response: any) => {
@@ -136,6 +135,13 @@ export class AllRecipesComponent {
         this.recipes = response.data.sortRecipesByRating;
       });
     }
+  }
+
+  getByDate(date : string){
+    this.searchService.recipesCreatedAfterDate(date).subscribe(response => {
+      this.recipes = response.data.recipesCreatedAfterDate;
+
+    })  
   }
 }
 

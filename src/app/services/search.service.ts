@@ -295,4 +295,47 @@ export class SearchService {
     }) .pipe(tap(
       console.log));
   }
+
+  recipesCreatedAfterDate(date : string){
+    return this.apollo
+    .query({
+      query: gql`
+      query {
+        recipesCreatedAfterDate (date: $date) {
+          id
+          title
+            description
+            picture
+            createdAt
+            rating
+          category {
+            id
+            name
+          }
+          ingredients {
+            id
+            name
+            description
+          }
+          instructions {
+            id
+            number
+            description
+          }
+          user{
+            id
+            firstName 
+            lastName 
+            email
+            createdAt
+          }
+          }
+        }
+      }
+    `,variables: {
+      date: date,
+  },
+    }) .pipe(tap(
+      console.log));
+  }
 }

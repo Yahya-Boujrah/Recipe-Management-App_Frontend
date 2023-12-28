@@ -1,16 +1,20 @@
 <div class="single-receipe mb-3">
-    <img src="{{recipe.picture}}" alt="">
+    <img src="{{recipe.picture}}"  (click)="singleRecipePost()" alt="">
     <div class="receipe-content">
         <!-- <p>{{recipe.title}}</p> -->
         <a (click)="singleRecipePost()">
-            <div class="row">
-                <div class="col-8">
-                    <h5>{{recipe.title}}</h5>
-                </div>
-                <div class="col ">
-                    <a  (click)="removeRecipe(recipe.id)"><fa-icon class="x-icon" [icon]="faTrash"></fa-icon></a>
-                </div>
+            <div class="header">
+                <h5>{{recipe.title}}</h5>
+                <!-- <a (click)="removeRecipe(recipe.id)"><fa-icon class="x-icon" [icon]="faTrash"></fa-icon></a> -->
             </div>
         </a>
+        <div class="ratings">
+            @for (star of getStarsArray(); track star) {
+            <fa-icon class="star-icon" [icon]="solidStar"></fa-icon>
+            }
+            @for (starEmpty of getEmptyStarsArray(); track starEmpty) {
+            <fa-icon class="star-icon" [icon]="regularStar"></fa-icon>
+            }
+        </div>
     </div>
 </div>

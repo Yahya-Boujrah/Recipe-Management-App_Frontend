@@ -30,7 +30,7 @@
                             placeholder="Description" ngModel required></textarea>
                     </div>
                     <button class="button button-black" (click)="addIngredient(ingredientForm)"
-                        [disabled]="ingredientForm.invalid"><fa-icon [icon]="faCirclePlus"></fa-icon>Add
+                        [disabled]="ingredientForm.invalid"><fa-icon class="icon-plus" [icon]="faCirclePlus"></fa-icon>Add
                         Ingredient</button>
                 </form>
                 @for (ingredient of ingredients; track $index) {
@@ -47,7 +47,7 @@
                     <textarea class="form-control description" name="description" cols="30" rows="10"
                         placeholder="Description" ngModel required></textarea>
                     <button class="button button-black " (click)="addInstruction(instructionForm)"
-                        [disabled]="instructionForm.invalid"><fa-icon [icon]="faCirclePlus"></fa-icon>
+                        [disabled]="instructionForm.invalid"><fa-icon class="icon-plus" [icon]="faCirclePlus"></fa-icon>
                         Add Instruction</button>
                 </form>
                 @for (step of steps; track $index) {

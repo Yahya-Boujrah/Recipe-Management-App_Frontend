@@ -1,73 +1,66 @@
-.recipe {
-    margin: 60px;
-}
-.row {
-    margin: 40px;
-    height: auto;
-}
-.col {
-    padding: 20px 15px;
-    margin: 20px;
-}
-.recipe-image {
-    justify-content: center;
-    text-align: center;
-    margin: 30px;
-    width: 100%;
-    height: auto;
-    margin: auto;
-}
-.recipe-text {
-    margin: 60px 20px 10px;
-}
-.title {
-    font-size: 50px;
-    font-weight: 700;
-    font-family: Arial, "Montserrat", sans-serif;
-    letter-spacing: 3px;
-    justify-content: center;
-    text-align: center;
-    padding: 10px;
-    color: #1c8314;
-}
-.parag-title {
-    font-weight: 700;
-    font-family: "Montserrat", sans-serif;
-    letter-spacing: 3px;
-    font-size: x-large;
-    padding: 20px;  
-    color: #1c8314;
-}
-.text-sm-start {
-    font-size: large;
-    font-weight: 400;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    letter-spacing: .6px;
-    color: #4A4A4A !important;
-    text-align: center !important;
-    padding: 20px;
-}
- #second-text {
-    text-align: start !important;
-    padding: 0 !important;
- }
-.step {
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    color: #40ba37;
-    padding: 10px;
-}
-hr {
-    color: #40ba37;
+@media only screen and (min-width: 995px) {
+    .container {
+        max-width: 1200px !important;
+
+    }
 }
 
-.ingredients {
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    padding: 10px;
+span {
+    font-size: 14px;
+    display: block;
+    color: #a4a4a4;
+    margin-bottom: 0;
 }
-#third-text {
-    text-align: start !important;
-    padding: 10px !important;
+
+.receipe-details {
+    border-left: 3px solid #40ba37;
+    padding: 15px;
+}
+
+.recipe-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.title {
+    font-weight: 700;
+    color: #1c8314;
+}
+
+.text-sm-start {
+    font-weight: 400;
+    font-size: 16px;
+    color: #4A4A4A !important;
+    margin: 1rem;
+}
+
+.step {
+    font-size: 17px;
+    color: #40ba37;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.hr-1 {
+    color: #40ba37;
+    width: 90%;
+    margin: 0;
+    margin-left: 13px;
+}
+
+.ml-0 {
+    margin-left: 0;
+}
+
+.hr-2 {
+    color: #40ba37;
+    width: 50%;
+}
+
+.star-icon {
+    font-size: 18px;
+    color: #fbb710;
+    padding: 0 3px;
 }

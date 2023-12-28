@@ -1,54 +1,60 @@
 <app-page-header title="Recipe Post"></app-page-header>
 
-<div class="recipe">
+<div class="recipe container">
     <div class="row">
-        <div class="col">
-            <div class="recipe-image">
-                <img src="{{recipe.picture}}" alt="" class="rounded float-right">
-            </div>
+        <div class="col-12 col-lg-6 col-md-8  recipe-image">
+            <img src="{{recipe.picture}}" alt="" class="rounded float-right">
         </div>
-        <div class="col">
-            <div class="recipe-text">
+        <div class="col-12 col-lg-6 col-md-8 recipe-text my-5">
+            <div>
+                <span>{{recipe.createdAt}}</span>
                 <h2 class="title">{{recipe.title}}</h2>
-                <p class="text-sm-start">{{recipe.description}}</p>
-                <p class="text-sm-start" id="second-text">Category: <strong>{{recipe.category.name}}</strong></p>
-                <p class="text-sm-start" id="second-text">Created At: <strong>{{recipe.createdAt}}</strong></p>
-                <p class="text-sm-start" id="second-text">Created By: <strong>{{recipe.user?.firstName}} |
-                        {{recipe.user?.lastName}}</strong></p>
+
+                <div class="ratings">
+                    @for (star of getStarsArray(); track star) {
+                    <fa-icon class="star-icon" [icon]="solidStar"></fa-icon>
+                    }
+                    @for (starEmpty of getEmptyStarsArray(); track starEmpty) {
+                    <fa-icon class="star-icon" [icon]="regularStar"></fa-icon>
+                    }
+                </div>
             </div>
+            <div class="receipe-details">
+                <h6>Category: <strong>{{recipe.category.name}}</strong></h6>
+                <h6>Created At:: <strong>{{recipe.createdAt}}</strong></h6>
+                <h6>Created By: <strong>{{recipe.user?.firstName}} |
+                        {{recipe.user?.lastName}}</strong></h6>
+            </div>
+            <h6>{{recipe.description}}</h6>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-5">
         <div class="col">
-            <div class="steps">
-                <label class="parag-title"> How To Make It</label><br>
-                @for (step of recipe.instructions; track $index) {
-                    <label class="step"> Step {{step.number}}</label><hr>
-                    <p class="text-sm-start" id="second-text">{{step.description}}</p>
-                } @empty {
-                <p class="text-sm-start">Empty list of methods</p>
-                }
-
+            <h3 class="title">How To Make It</h3>
+            @for (step of recipe.instructions; track $index) {
+            <div class="step">
+                <label>{{step.number}}.STEP </label>
+                <hr class="hr-1">
             </div>
+
+            <p class="text-sm-start">{{step.description}}</p>
+            } @empty {
+            <p class="text-sm-start">Empty list of methods</p>
+            }
         </div>
         <div class="col">
-            <div class="ingredients">
-                <label class="parag-title"> Ingredients</label><br>
-                @for (ingredient of recipe.ingredients; track $index) {
-                    <div class="form-check">
-                        <label class="text-sm-start" id="third-text">
-                           {{ingredient.name}}
-                        </label>
-                        <p class="text-sm-start" id="second-text">
-                            {{ingredient.description}}
-                        </p>
-                        <hr>
-                    </div>
-                } @empty {
-                <p class="text-sm-start">Empty list of ingredients</p>
-                }
+            <h3 class="title">Ingredients</h3>
+            @for (ingredient of recipe.ingredients; track $index) {
+            <div class="">
+                <p class="text-sm-start ml-0">
+                    {{ingredient.description}}
+                </p>
+                <hr class="hr-2">
             </div>
+            } @empty {
+            <p class="text-sm-start">Empty list of ingredients</p>
+            }
         </div>
     </div>
 </div>
