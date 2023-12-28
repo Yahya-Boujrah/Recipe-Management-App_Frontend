@@ -110,4 +110,63 @@ export class RecipeService {
       .pipe(tap(
         console.log));
   }
+
+  getCurrentUser(){
+    return this.apollo
+      .query({
+        query: gql`
+        query getCurrentUser{
+          getCurrentUser {
+              id
+              firstName
+              lastName
+              email
+          }
+        } 
+        `
+      })
+      .pipe(tap(
+        console.log));
+  }
+
+  getUserRecipes(){
+    return this.apollo
+    .query({
+      query: gql`
+      query getUserRecipes {
+        getUserRecipes {
+          id
+          title
+          description
+          picture
+          rating
+          user {
+            id
+            firstName
+            lastName
+            email
+            
+          }
+          category {
+            id
+            name
+          }
+          ingredients {
+            id
+            name
+            description
+          }
+          instructions {
+            id
+            number
+            description
+          }
+        }
+      } 
+      `
+    })
+    .pipe(tap(
+      console.log));
+}
+
 }
