@@ -110,12 +110,94 @@ export class SearchService {
       console.log));
   }
 
+  sortRecipesByRating(){
+    return this.apollo
+    .query({
+      query: gql`
+      query {
+        sortRecipesByRating {
+          id
+          title
+            description
+            picture
+            createdAt
+            rating
+          category {
+            id
+            name
+          }
+          ingredients {
+            id
+            name
+            description
+          }
+          instructions {
+            id
+            number
+            description
+          }
+          user{
+            id
+            firstName 
+            lastName 
+            email
+            createdAt
+          }
+          }
+        }
+      }
+    `
+    }) .pipe(tap(
+      console.log));
+  }
   sortRecipesByDate(){
     return this.apollo
     .query({
       query: gql`
       query {
         top6RatedRecipes {
+          id
+          title
+            description
+            picture
+            createdAt
+            rating
+          category {
+            id
+            name
+          }
+          ingredients {
+            id
+            name
+            description
+          }
+          instructions {
+            id
+            number
+            description
+          }
+          user{
+            id
+            firstName 
+            lastName 
+            email
+            createdAt
+          }
+          }
+        }
+      }
+    `
+    }) .pipe(tap(
+      console.log));
+  }
+
+  getLatestRecipe(){
+
+    return this.apollo
+    .query({
+      query: gql`
+      query {
+        getLatestRecipe {
           id
           title
             description

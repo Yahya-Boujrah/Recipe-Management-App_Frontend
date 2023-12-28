@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { SearchService } from '../../services/search.service';
+import { Recipe } from '../../interfaces/recipe';
 
 @Component({
   selector: 'app-home-header',
@@ -8,12 +10,22 @@ import { Component } from '@angular/core';
   templateUrl: './home-header.component.html',
   styleUrl: './home-header.component.css'
 })
-export class HomeHeaderComponent {
+export class HomeHeaderComponent implements OnInit{
+
+  private searchService = inject(SearchService);
+
+  latestRecipe !: Recipe;
+
+  ngOnInit(): void {
+    this.searchService.getLatestRecipe().subscribe(response =>{
+      this.latestRecipe = response.data.getLatestRecipe;
+    });
+  }
+
 
   pictures: { id: string, src: string }[] = [
     { id: "1", src: "/assets/img/bg-img/bg1.jpg" },
-    // { id: "2", src: "/assets/img/bg-img/bg6.jpg" },
-    // { id: "3", src: "/assets/img/bg-img/bg7.jpg" }
   ];
+
 
 }
