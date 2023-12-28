@@ -20,13 +20,21 @@ export const graphqlProvider: ApplicationConfig['providers'] = [
     useFactory(httpLink: HttpLink) {
       const http = httpLink.create({ uri });
       const token = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('token') : null;
+      // const middleware = new ApolloLink((operation, forward) => {
+      //   operation.setContext({
+      //     headers: new HttpHeaders().set(
+      //       'Authorization',
+      //       `Bearer ${token || null}`,
+      //     ),
+      //   });
+      //   return forward(operation);
+      // });
       const middleware = new ApolloLink((operation, forward) => {
-        operation.setContext({
-          headers: new HttpHeaders().set(
-            'Authorization',
-            `Bearer ${token || null}`,
-          ),
-        });
+        const headers = new HttpHeaders();
+        if (token) {
+          headers.set('Authorization', `Bearer ${token}`);
+        }
+        operation.setContext({ headers });
         return forward(operation);
       });
 

@@ -1,15 +1,13 @@
 <section class="hero-area">
     @for (pic of pictures; track pic.id) {
-    <div class="single-slide bg-img" style="background-image: url({{pic.src}});">
+    <div class="single-slide bg-img" style="background-image: url({{latestRecipe.picture}});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="slide-content" data-animation="fadeInUp" data-delay="100ms">
-                        <h2 data-animation="fadeInUp" data-delay="300ms">Latest Recipe Added</h2>
-                        <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem
-                            eget dui tristique, ac posuere arcu varius.</p>
-                        <a href="#" class="button" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                        <h2 data-animation="fadeInUp" data-delay="300ms">{{latestRecipe.title}}</h2>
+                        <p data-animation="fadeInUp" data-delay="700ms">{{latestRecipe.description}}</p>
+                        <a href="#" class="button" data-animation="fadeInUp" data-delay="1000ms">See Recipe</a>
                     </div>
                 </div>
                 <div>
