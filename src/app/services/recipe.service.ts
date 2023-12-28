@@ -24,6 +24,7 @@ export class RecipeService {
               description
               picture
               createdAt
+              rating
             category {
               id
               name
@@ -98,9 +99,9 @@ export class RecipeService {
     return this.apollo
       .mutate({
         mutation: gql`
-            deleteRecipe(id: $recipeId) {
-              result
-          }
+        mutation deleteRecipe($recipeId: String!){
+            deleteRecipe(id: $recipeId)
+        } 
         `,
         variables: {
           recipeId: recipeId,

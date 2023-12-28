@@ -55,7 +55,7 @@ export class SearchService {
     return this.apollo
     .query({
       query: gql`
-      query {
+      query recipesByCategory($category: String!){
         recipesByCategory(category: $category) {
           id
           title
@@ -137,7 +137,7 @@ export class SearchService {
     return this.apollo
     .query({
       query: gql`
-      query {
+      query sortByRating{
         sortRecipesByRating {
           id
           title
@@ -166,9 +166,8 @@ export class SearchService {
             email
             createdAt
           }
-          }
         }
-      }
+}
     `
     }) .pipe(tap(
       console.log));
@@ -177,8 +176,8 @@ export class SearchService {
     return this.apollo
     .query({
       query: gql`
-      query {
-        top6RatedRecipes {
+      query sortRecipesByDate {
+        sortRecipesByDate {
           id
           title
             description
@@ -208,7 +207,6 @@ export class SearchService {
           }
           }
         }
-      }
     `
     }) .pipe(tap(
       console.log));
@@ -300,7 +298,7 @@ export class SearchService {
     return this.apollo
     .query({
       query: gql`
-      query {
+      query recipesCreatedAfterDate($date : String!){
         recipesCreatedAfterDate (date: $date) {
           id
           title
@@ -329,9 +327,8 @@ export class SearchService {
             email
             createdAt
           }
-          }
-        }
       }
+    }
     `,variables: {
       date: date,
   },
