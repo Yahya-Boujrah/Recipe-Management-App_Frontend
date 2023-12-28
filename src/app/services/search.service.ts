@@ -15,12 +15,36 @@ export class SearchService {
     return this.apollo
     .query({
       query: gql`
-      query {
+      query SearchRecipesInFields($searchTerm: String!) {
         searchRecipesInFields(searchTerm: $searchTerm) {
-          Recipe
+          id
+          title
+          description
+          picture
+          createdAt
+          category {
+            id
+            name
+          }
+          ingredients {
+            id
+            name
+            description
+          }
+          instructions {
+            id
+            number
+            description
+          }
+          user{
+            id
+            firstName 
+            lastName 
+            email
+            createdAt
+          }
         }
-      }
-    `, variables: {
+      }`, variables: {
       searchTerm: searchTerm,
     },
     }).pipe(tap(
@@ -104,7 +128,6 @@ export class SearchService {
           }
           }
         }
-      }
     `
     }) .pipe(tap(
       console.log));
@@ -227,8 +250,48 @@ export class SearchService {
           }
           }
         }
-      }
     `
+    }) .pipe(tap(
+      console.log));
+  }
+
+  getFuzzyResults(title : String){
+    return this.apollo
+    .query({
+      query: gql`
+      query GetFuzzyResults($title: String!) {
+        recipesFuzzySearch(title: $title) {
+          id
+          title
+          description
+          picture
+          createdAt
+          rating
+          category {
+            id
+            name
+          }
+          ingredients {
+            id
+            name
+            description
+          }
+          instructions {
+            id
+            number
+            description
+          }
+          user {
+            id
+            firstName 
+            lastName 
+            email
+            createdAt
+          }
+        }
+      }`, variables: {
+      title: title ,
+    },
     }) .pipe(tap(
       console.log));
   }
