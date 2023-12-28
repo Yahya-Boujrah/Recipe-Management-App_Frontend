@@ -76,7 +76,6 @@ export class NavbarComponent {
       if (response) {
         this.authToken = response.token;
         sessionStorage.setItem('token', this.authToken);
-        // this.router.navigate([''], {relativeTo: this.route});
 
       } else {
         alert("Authentication failed");

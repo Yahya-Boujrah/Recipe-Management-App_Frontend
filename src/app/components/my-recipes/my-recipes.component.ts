@@ -1,8 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { PageHeaderComponent } from '../page-header/page-header.component';
 import { SingleRecipeComponent } from '../single-recipe/single-recipe.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../../interfaces/recipe';
+import { RecipeService } from '../../services/recipe.service';
+import { response } from 'express';
 
 @Component({
   selector: 'app-my-recipes',
@@ -11,13 +13,23 @@ import { Recipe } from '../../interfaces/recipe';
   templateUrl: './my-recipes.component.html',
   styleUrl: './my-recipes.component.css',
 })
-export class MyRecipesComponent {
+export class MyRecipesComponent implements OnInit {
+
 
 
   private router = inject(Router);
   private route = inject(ActivatedRoute);
+  private recipeService = inject(RecipeService);
 
   recipes !: Recipe[];
+
+
+  ngOnInit(): void {
+    this.recipeService.getUserRecipes().subscribe(response => {
+
+      this.recipes = response?.data.getUserRecipes;
+    })
+  }
 
   recipies = [
     {
@@ -80,6 +92,7 @@ export class MyRecipesComponent {
   addRecipe() {
     this.router.navigate(['add-recipe']);
   }
+
 
   
  
