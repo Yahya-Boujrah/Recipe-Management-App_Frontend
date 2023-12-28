@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 import { Recipe } from '../../interfaces/recipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-header',
@@ -13,6 +14,7 @@ import { Recipe } from '../../interfaces/recipe';
 export class HomeHeaderComponent implements OnInit{
 
   private searchService = inject(SearchService);
+  private router = inject(Router);
 
   latestRecipe !: Recipe;
 
@@ -22,6 +24,9 @@ export class HomeHeaderComponent implements OnInit{
     });
   }
 
+  seeRecipe(){
+    this.router.navigate(['singleRecipePost'], { state: { recipe: this.latestRecipe } });
+  }
 
   pictures: { id: string, src: string }[] = [
     { id: "1", src: "/assets/img/bg-img/bg1.jpg" },
