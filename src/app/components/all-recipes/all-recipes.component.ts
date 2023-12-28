@@ -6,6 +6,7 @@ import { PageHeaderComponent } from '../page-header/page-header.component';
 import { Recipe } from '../../interfaces/recipe';
 import { RecipeService } from '../../services/recipe.service';
 import { SearchService } from '../../services/search.service';
+import { response } from 'express';
 
 @Component({
   selector: 'app-all-recipes',
@@ -14,8 +15,7 @@ import { SearchService } from '../../services/search.service';
   templateUrl: './all-recipes.component.html',
   styleUrl: './all-recipes.component.css'
 })
-// export class AllRecipesComponent implements OnInit{
-export class AllRecipesComponent {
+export class AllRecipesComponent implements OnInit{
 
   private recipeService = inject(RecipeService);
 
@@ -32,6 +32,7 @@ export class AllRecipesComponent {
       picture: '../../../assets/img/bg-img/r1.jpg',
       category: { id: '1', name: 'cat1' },
       createdAt: '2015-09-12',
+      rating:2,
       ingredients: [
         { name: 'sel', description: 'on ajout un petit peu du sel' },
         { name: 'sel', description: 'on ajout un petit peu du sel' },
@@ -49,6 +50,7 @@ export class AllRecipesComponent {
       picture: '../../../assets/img/bg-img/r2.jpg',
       category: { id: '1', name: 'cat1' },
       createdAt: '2015-09-12',
+      rating:5,
       ingredients: [
         { name: 'sel', description: 'on ajout un petit peu du sel' },
         { name: 'sel', description: 'on ajout un petit peu du sel' },
@@ -66,6 +68,7 @@ export class AllRecipesComponent {
       picture: '../../../assets/img/bg-img/r3.jpg',
       category: { id: '1', name: 'cat1' },
       createdAt: '2015-09-12',
+      rating:3,
       ingredients: [
         { name: 'sel', description: 'on ajout un petit peu du sel' },
         { name: 'sel', description: 'on ajout un petit peu du sel' },
@@ -116,6 +119,13 @@ export class AllRecipesComponent {
         this.recipes = response.data.sortRecipesByRating;
       });
     }
+  }
+
+  getByDate(date : string){
+    this.searchService.recipesCreatedAfterDate(date).subscribe(response => {
+      this.recipes = response.data.recipesCreatedAfterDate;
+
+    })  
   }
 }
 
