@@ -26,10 +26,7 @@ export class NavbarComponent {
   private authToken!: string;
   activeLink: string = 'home';
 
-
-
   get tokenExist (){
-
     return sessionStorage.getItem('token') == undefined ?true : false ;
   } 
 

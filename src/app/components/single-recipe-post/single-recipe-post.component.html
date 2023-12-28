@@ -1,6 +1,6 @@
 <app-page-header title="Recipe Post"></app-page-header>
 
-<div class="recipe container">
+<section class="recipe container">
     <div class="row">
         <div class="col-12 col-lg-6 col-md-8  recipe-image">
             <img src="{{recipe.picture}}" alt="" class="rounded float-right">
@@ -8,7 +8,12 @@
         <div class="col-12 col-lg-6 col-md-8 recipe-text my-5">
             <div>
                 <span>{{recipe.createdAt}}</span>
-                <h2 class="title">{{recipe.title}}</h2>
+                <div class="header">
+                    <h2 class="title">{{recipe.title}}</h2>
+                    @if (!tokenExist) {
+                        <a  data-bs-toggle="modal" data-bs-target="#deleteModal"><fa-icon class="trash-icon" [icon]="faTrash"></fa-icon></a>
+                    }
+                </div>
 
                 <div class="ratings">
                     @for (star of getStarsArray(); track star) {
@@ -57,4 +62,25 @@
             }
         </div>
     </div>
-</div>
+
+     <!-- Delete Modal -->
+     <div class="modal fade" id="deleteModal" tabindex="-1" data-bs-backdrop="static" role="dialog" data-bs-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog bg-light" style="border-radius:10px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Recipe</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    You are about to delete a Recipe !
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" (click)="removeRecipe(recipe.id)"
+                        data-bs-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

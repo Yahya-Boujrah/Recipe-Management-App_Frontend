@@ -64,3 +64,13 @@ span {
     color: #fbb710;
     padding: 0 3px;
 }
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.trash-icon{
+    font-size: 25px;
+    color: red;
+}
