@@ -11,7 +11,7 @@ import { User } from '../../interfaces/user';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterOutlet,LoginInComponent, SignUpComponent, FormsModule],
+  imports: [RouterOutlet, LoginInComponent, SignUpComponent, FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
   providers: []
@@ -26,80 +26,90 @@ export class NavbarComponent {
   private authToken!: string;
   activeLink: string = 'home';
 
-  get tokenExist (){
-    return sessionStorage.getItem('token') == undefined ?true : false ;
-  } 
+  get tokenExist() {
+    return sessionStorage.getItem('token') == undefined ? true : false;
+  }
 
-  home() : void{
+  home(): void {
     this.activeLink = 'home';
     this.router.navigate(['']);
   }
 
-  aboutUs() : void {  
+  aboutUs(): void {
     this.activeLink = 'aboutUs';
-    this.router.navigate(['about-us'],{relativeTo: this.route});
+    this.router.navigate(['about-us'], { relativeTo: this.route });
   }
 
-  allRecipes() : void {
+  allRecipes(): void {
     this.activeLink = 'allRecipes';
-    this.router.navigate(['all-recipes'],{relativeTo: this.route});
+    this.router.navigate(['all-recipes'], { relativeTo: this.route });
 
 
   }
-  addRecipe() : void {
-    this.activeLink = 'addRecipe';
-    this.router.navigate(['add-recipe'],{relativeTo: this.route});
+  addRecipe(): void {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      this.activeLink = 'addRecipe';
+      this.router.navigate(['add-recipe'], { relativeTo: this.route });
+    }
+    this.router.navigate(['login']);
 
   }
 
-  myRecipes() : void {
-    this.activeLink = 'myRecipes';
-    this.router.navigate(['my-recipes'],{relativeTo: this.route});
+  myRecipes(): void {
+    const token = sessionStorage.getItem("token");
+
+    if (token) {
+      this.activeLink = 'myRecipes';
+      this.router.navigate(['my-recipes'], { relativeTo: this.route });
+    }
+    this.router.navigate(['login']);
+
   }
 
-  login(form : NgForm) : any{
+  login(form: NgForm): any {
     console.log(form);
-    
-    const email : string = form.value.email;
-    const password : string = form.value.password;
-    this.loginService.authenticate(email, password).subscribe(response =>{
+
+    const email: string = form.value.email;
+    const password: string = form.value.password;
+    this.loginService.authenticate(email, password).subscribe(response => {
       if (response) {
         this.authToken = response.token;
         sessionStorage.setItem('token', this.authToken);
         // this.router.navigate([''], {relativeTo: this.route});
-    
-      }else{
+
+      } else {
         alert("Authentication failed");
       }
     }, error => {
-       alert("Authentication failed");
+      alert("Authentication failed");
     });
 
   }
 
-  register(form : NgForm) : any{
-    const user : User = form.value;
+  register(form: NgForm): any {
+    const user: User = form.value;
     user.role = 'USER'
-    return this.loginService.register(user).subscribe(response =>{
+    return this.loginService.register(user).subscribe(response => {
       if (response) {
         this.authToken = response.token;
         sessionStorage.setItem('token', this.authToken);
         // this.router.navigate([''], {relativeTo: this.route});
-    
-      }else{
+
+      } else {
         alert("Authentication failed");
       }
     }, error => {
-       alert("Authentication failed");
+      alert("Authentication failed");
     })
   }
 
   logout() {
-    console.log("token ",this.authToken);
-    
+    console.log("token ", this.authToken);
+
     sessionStorage.removeItem('token');
     this.authToken = '';
     this.router.navigate(['']);
   }
-  
+
 }
