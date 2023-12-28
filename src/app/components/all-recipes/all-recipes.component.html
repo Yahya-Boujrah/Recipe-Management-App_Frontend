@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row mx-0">
-            <input  #search type="search" class="form-control search-input" id="search" placeholder="Search Recipes" (keyup.enter)="fuzzyResults(search.value)">
+            <input  #search type="search" class="form-control search-input" id="search" placeholder="Search Recipes" (keyup.enter)="fuzzySearch(search.value)">
         </div>
         <div class="row picklists">
             <select #sort class="nice-select col-3" name="select" NgModel (change)="sortData(sort.value)">
